@@ -1,0 +1,21 @@
+button[data-editor="scrivito-toggle-button"] {
+  margin: 4px;
+  height: auto !important;
+  width: 120px !important;
+  text-align: left;
+  text-shadow: 0 0 2px #222;
+  background: #444;
+  color: #fff;
+  outline: none !important;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+button[data-editor='scrivito-toggle-button']:hover {
+  background: #888;
+}
+
+button[data-editor='scrivito-toggle-button'].active {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.6) inset, 0 0 3px 1px #222
+}
