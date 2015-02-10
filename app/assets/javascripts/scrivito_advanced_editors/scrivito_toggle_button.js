@@ -14,8 +14,8 @@
       clickFunction: function(scrivito_tag) {
         var text = scrivito_tag.data('content');
 
-        scrivito_tag.addClass('activated');
-        scrivito_tag.siblings().removeClass('activated');
+        scrivito_tag.addClass('active');
+        scrivito_tag.siblings().removeClass('active');
 
         return scrivito_tag.scrivito('save', text);
       },
