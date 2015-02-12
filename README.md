@@ -66,3 +66,27 @@ Simply add the editor to scrivito_tag.
 ## Included Extensions
 
 ### Tab View
+
+The Tab view is to seperate your attributes if there are many at one cms object. This could be meta datas, datas for different devices or so on.
+So have a better survey over your params.
+
+#### Usage
+
+You have to add some blocks to your details view.
+Set the class `active` to the tab list to select the initial active panel.
+
+    <ul class="tab-list">
+      <li data-panel-target="#panel1" class="active">Elem1</li>
+      <li data-panel-target="#panel2">Elem2</li>
+    </ul>
+
+    <div class="tab-panels">
+      <div class="tab-panel" id="panel1">
+        scrivito_tags for panel 1 are here ....
+      </div>
+
+      <div class="tab-panel" id="panel2">
+        scrivito_tags for panel 2 are here ....
+      </div>
+    </div>
+

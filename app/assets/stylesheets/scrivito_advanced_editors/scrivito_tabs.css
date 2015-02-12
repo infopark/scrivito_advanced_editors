@@ -1,0 +1,38 @@
+.tab-list {
+  overflow: hidden;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.tab-list li {
+  float: left;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #ddd;
+}
+
+.tab-list li:hover {
+  background: #bbb;
+}
+
+.tab-list li.active {
+  background: #444;
+  color: #eee;
+}
+
+.tab-list li.active:hover {
+  background: #222;
+}
+
+.tab-panels {
+  overflow: hidden;
+}
+
+.tab-panels .tab-panel {
+  display: none;
+}
+
+.tab-panels .tab-panel.active {
+  display: block;
+}
