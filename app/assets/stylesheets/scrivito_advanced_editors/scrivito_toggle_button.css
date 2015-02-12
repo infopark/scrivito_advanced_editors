@@ -1,8 +1,6 @@
 button[data-editor="scrivito-toggle-button"] {
   margin: 4px;
-  height: auto !important;
-  width: 120px !important;
-  text-align: left;
+  min-width: 28px;
   text-shadow: 0 0 2px #222;
   background: #444;
   color: #fff;
