@@ -3,17 +3,19 @@ module ScrivitoAdvancedEditors
 
     def scrivito_toggle_button_editor(obj, attribute, list=nil)
       list = enum_list(obj, attribute) if list.nil?
-      if block_given?
+      buttons = if block_given?
         list.map { |elem| yield(elem) }.join('').html_safe
       else
         list.map { |elem| fallback_toggle_button(obj, attribute, elem, obj.send(attribute)) }.join('').html_safe
       end
+
+      content_tag :div, buttons, class: 'button_list'
     end
     
     private
     def fallback_toggle_button(obj, attribute, elem, active)
       scrivito_tag(:button, obj, attribute, class: css_class(elem, active), data: data_attribute(elem)) do
-        elem
+        elem.to_s
       end
     end
 
@@ -29,7 +31,7 @@ module ScrivitoAdvancedEditors
     end
 
     def css_class(elem, active)
-      elem == active ? 'active' : ''
+      elem.to_s == active ? 'active' : ''
     end
   end
 end
