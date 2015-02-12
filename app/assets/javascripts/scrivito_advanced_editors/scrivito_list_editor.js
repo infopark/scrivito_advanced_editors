@@ -24,6 +24,8 @@
         $.each(elems, function(index, elem) {
           $(elem).tagEditor({
             initialTags: $(elem).html().split(','),
+            forceLowercase: false,
+            maxLength: 1000,
             placeholder: 'Enter new value ...',
             onChange: function (field, editor, tags) {
               ScrivitoListEditor.clickFunction(field, tags);
