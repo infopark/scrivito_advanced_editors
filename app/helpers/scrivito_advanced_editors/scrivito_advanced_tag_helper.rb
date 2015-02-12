@@ -9,7 +9,7 @@ module ScrivitoAdvancedEditors
         list.map { |elem| fallback_toggle_button(obj, attribute, elem, obj.send(attribute)) }.join('').html_safe
       end
     end
-
+    
     private
     def fallback_toggle_button(obj, attribute, elem, active)
       scrivito_tag(:button, obj, attribute, class: css_class(elem, active), data: data_attribute(elem)) do

@@ -7,6 +7,7 @@ Provides some advanced Editors and details view extensions for scrivito
 Add to your gemfile
 
     gem 'scrivito_advanced_editors'
+    gem 'font-awesome-rails'
 
 Add this line to your application Stylesheet manifest:
 
@@ -48,15 +49,9 @@ This Editor can be used to edit word lists like tags.
 
 #### Usage
 
-Simply add the editor to scrivito_tag.
+Use the helper method to render the list and an add input field. Attribute is an text field of your cms obj. The text is split by an `|`
 
-    scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-list-editior'})
-
-If you have longer texts like quotes, you can wrap the scrivito tag in a container with css class scrivito-list-wrapper
-
-    <div class="scrivito-list-wrapper">
-      scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-list-editior'})
-    </div>
+    scrivito_list_editor(obj, attribute)
 
 ### Scrivito Textarea Editor
 
