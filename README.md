@@ -49,9 +49,13 @@ This Editor can be used to edit word lists like tags.
 
 #### Usage
 
-Use the helper method to render the list and an add input field. Attribute is an text field of your cms obj. The text is split by an `|`
+Simply specify the editor on scrivito_tag.
 
-    scrivito_list_editor(obj, attribute)
+    scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-list-editor'})
+
+The normal delimiter is '|'. Ich you need a different, add the data atrribute `data-delimiter`.
+
+    scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-list-editor', delimiter: ','})
 
 ### Scrivito Textarea Editor
 

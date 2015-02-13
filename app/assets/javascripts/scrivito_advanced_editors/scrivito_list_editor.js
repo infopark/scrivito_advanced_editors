@@ -22,8 +22,10 @@
         var elems = $(ScrivitoListEditor.selector);
 
         $.each(elems, function(index, elem) {
+          var delimiter = $(elem).data('delimiter') || '|';
           $(elem).tagEditor({
-            initialTags: $(elem).html().split(','),
+            initialTags: $(elem).html().split(delimiter),
+            delimiter: delimiter,
             forceLowercase: false,
             maxLength: 1000,
             placeholder: 'Enter new value ...',
