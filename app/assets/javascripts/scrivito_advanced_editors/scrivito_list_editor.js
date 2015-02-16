@@ -11,8 +11,9 @@
       initFunction: function() { },
       
       // set function triggert on click
-      clickFunction: function(scrivito_tag, text) {
-        return scrivito_tag.scrivito('save', text.join(','));
+      clickFunction: function(scrivito_tag, text, delimiter) {
+        var delimiter = $(scrivito_tag).data('delimiter') || '|';
+        return scrivito_tag.scrivito('save', text.join(delimiter));
       },
     };
 
@@ -20,7 +21,6 @@
     scrivito.on('content', function() {
       if(scrivito.in_editable_view()) {
         var elems = $(ScrivitoListEditor.selector);
-
         $.each(elems, function(index, elem) {
           var delimiter = $(elem).data('delimiter') || '|';
           $(elem).tagEditor({

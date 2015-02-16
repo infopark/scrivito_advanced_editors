@@ -2,7 +2,7 @@
 /* surrounding tag container */
 .tag-editor {
   list-style-type: none;
-  padding: 0 5px;
+  padding: 5px 0;
   margin: 0 3px 3px;
   overflow: hidden;
   cursor: text;
@@ -31,8 +31,8 @@
 /* tag style */
 .tag-editor .tag-editor-tag {
   padding: 3px 5px;
-  color: #46799b;
-  background: #e0eaf1;
+  color: #fff;
+  background: #439439;
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
@@ -41,7 +41,8 @@
 
 /* delete icon */
 .tag-editor .tag-editor-delete {
-  background: #e0eaf1;
+  background: #439439;
+  color: #fff;
   cursor: pointer;
   padding: 3px 0;
   border-radius: 0 2px 2px 0; }
@@ -61,7 +62,7 @@
 .tag-editor .tag-editor-tag.active+.tag-editor-delete,
 .tag-editor .tag-editor-tag.active+.tag-editor-delete i { background: none; cursor: text; }
 
-.tag-editor .tag-editor-tag.active { background: none !important; }
+.tag-editor .tag-editor-tag.active { background: #eee; color: #000; }
 
 /* jQuery UI autocomplete - code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css */
 .ui-autocomplete { position: absolute; top: 0; left: 0; cursor: default; font-size: 14px; }
