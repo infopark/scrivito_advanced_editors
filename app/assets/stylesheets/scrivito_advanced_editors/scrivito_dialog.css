@@ -1,0 +1,25 @@
+.details-view h4 {
+  margin: 20px 0 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 22px;
+  color: #439439;
+  font-weight: bold;
+}
+
+.details-view h4:first-child {
+  margin-top: 0;
+}
+
+.details-view h5 {
+  margin: 20px 0 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 19px;
+  color: #439439;
+  font-weight: bold;
+}
+
+.details-view h5:first-child {
+  margin-top: 0;
+}
