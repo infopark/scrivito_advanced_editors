@@ -3,6 +3,7 @@ module ScrivitoAdvancedEditors
 
     def scrivito_toggle_button_editor(obj, attribute, list=nil)
       list = enum_list(obj, attribute) if list.nil?
+
       buttons = if block_given?
         list.map { |elem| yield(elem) }.join('').html_safe
       else

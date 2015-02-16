@@ -25,10 +25,6 @@
   background: #222;
 }
 
-.tab-panels {
-  overflow: hidden;
-}
-
 .tab-panels .tab-panel {
   display: none;
 }
