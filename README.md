@@ -17,7 +17,15 @@ Add this line to your editing Stylesheet manifest:
 
     /= require scrivito_advanced_editors/scripts
 
-If do not need all contained features, you can add them individually. 
+If do not need all contained features, you can add them individually.
+
+## Prerequisites
+
+If you want to use some stylings, you have to add a container with css class 'detailss-view' arround your details view
+
+    <div class="details-view">
+      ... your Code ...
+    </div>
 
 ## Included Editors
 
