@@ -21,7 +21,7 @@ If do not need all contained features, you can add them individually.
 
 ## Prerequisites
 
-If you want to use some stylings, you have to add a container with css class 'detailss-view' arround your details view
+If you want to use some stylings, you have to add a container with css class `details-view` arround your details view
 
     <div class="details-view">
       ... your Code ...
