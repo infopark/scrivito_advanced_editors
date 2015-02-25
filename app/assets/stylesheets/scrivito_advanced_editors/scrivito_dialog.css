@@ -23,3 +23,12 @@
 .details-view h5:first-child {
   margin-top: 0;
 }
+
+.details-view abbr {
+  color: #444;
+  font-size: 13px;
+}
+
+.details-view abbr:after {
+  content: "?";
+}

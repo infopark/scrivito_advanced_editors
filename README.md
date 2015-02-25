@@ -69,6 +69,20 @@ Simply add the editor to scrivito_tag.
 
 ## Included Extensions
 
+### View for inline help
+
+Some attributes are hard to describe in a short way. To give your editor a longer description you can add alerts in your view.
+
+An unobtrusive way is a small icon next to the headline. You can use an abbr if using bootstrap.
+
+    <h4>My attribute <abbr title="My long description" class="initialism"></abbr></h4>
+
+In default we render a "?" as content with css. but you can change this by your own style.
+
+    .details-view abbr:after {
+      content: " more details"
+    }
+
 ### Tab View
 
 The Tab view is to seperate your attributes if there are many at one cms object. This could be meta datas, datas for different devices or so on.
