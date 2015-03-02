@@ -80,11 +80,13 @@ Simply add the editor to scrivito_tag and use `textarea` as tag.
 ### Create new Obj Button
 
 It could be helpful to have a button to create a new obj. Like blog posts.
-To use the script, add a button with css class `create-obj`. Add data-obj-class and data-obj-path as attributes.
+To use the script, add a form with css class `create-obj`. Add data-obj-class and data-obj-path as attributes.
 
-    <button class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path>
-      Create a new Blog Post
-    </button>
+    <form class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path>
+      <button>
+        Create a new Blog Post
+      </button>
+    </form>
 
 For this default example you can also use a partial in this gem.
 

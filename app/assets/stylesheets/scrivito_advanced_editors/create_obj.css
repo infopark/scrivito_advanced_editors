@@ -1,0 +1,12 @@
+.create_obj {
+  background: #444;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #888;
+}
+
+.create_obj .form-control {
+  width: 250px;
+  float: left;
+  margin-right: 10px;
+}
