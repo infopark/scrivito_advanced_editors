@@ -1,0 +1,5 @@
+<% if scrivito_in_editable_view? %>
+  <button class="btn btn-primary create_obj" data-obj-class="<%= obj_class %>" data-obj-path="<%= obj_path %>">
+    <%= "Create new #{obj_class}" %>
+  </button>
+<% end %>

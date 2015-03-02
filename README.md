@@ -77,6 +77,21 @@ Simply add the editor to scrivito_tag and use `textarea` as tag.
 
 ## Included Extensions
 
+### Create new Obj Button
+
+It could be helpful to have a button to create a new obj. Like blog posts.
+To use the script, add a button with css class `create-obj`. Add data-obj-class and data-obj-path as attributes.
+
+    <button class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path>
+      Create a new Blog Post
+    </button>
+
+For this default example you can also use a partial in this gem.
+
+    <%= render "scrivito_advanced_editors/create_obj", obj_class: "BlogPost", obj_path: @obj.path %>
+
+In this Version a creatable obj class has to have an attribute named published_at
+
 ### View for inline help
 
 Some attributes are hard to describe in a short way. To give your editor a longer description you can add alerts in your view.
