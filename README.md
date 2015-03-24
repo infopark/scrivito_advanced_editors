@@ -7,15 +7,14 @@ Provides some advanced Editors and details view extensions for scrivito
 Add to your gemfile
 
     gem 'scrivito_advanced_editors'
-    gem 'font-awesome-rails'
 
 Add this line to your application Stylesheet manifest:
 
-    *= require scrivito_advanced_editors/styles
+    *= require scrivito_advanced_editors
 
 Add this line to your editing Stylesheet manifest:
 
-    /= require scrivito_advanced_editors/scripts
+    //= require scrivito_advanced_editors
 
 If do not need all contained features, you can add them individually.
 
