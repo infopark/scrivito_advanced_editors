@@ -117,18 +117,19 @@ So have a better survey over your params.
 You have to add some blocks to your details view.
 Set the class `active` to the tab list to select the initial active panel.
 
-    <ul class="tab-list">
-      <li data-panel-target="#panel1" class="active">Elem1</li>
-      <li data-panel-target="#panel2">Elem2</li>
-    </ul>
+```xml
+<ul class="tab-list">
+  <li data-panel-target="#panel1" class="active">Elem1</li>
+  <li data-panel-target="#panel2">Elem2</li>
+</ul>
 
-    <div class="tab-panels">
-      <div class="tab-panel" id="panel1">
-        scrivito_tags for panel 1 are here ....
-      </div>
+<div class="tab-panels">
+  <div class="tab-panel" id="panel1">
+    scrivito_tags for panel 1 are here ....
+  </div>
 
-      <div class="tab-panel" id="panel2">
-        scrivito_tags for panel 2 are here ....
-      </div>
-    </div>
-
+  <div class="tab-panel" id="panel2">
+    scrivito_tags for panel 2 are here ....
+  </div>
+</div>
+```
