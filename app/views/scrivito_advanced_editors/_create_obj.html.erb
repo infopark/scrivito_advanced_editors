@@ -1,5 +1,5 @@
 <% if scrivito_in_editable_view? %>
-  <form class="create_obj" data-obj-class="<%= obj_class %>" data-obj-path="<%= obj_path %>">
+  <form class="create_obj" data-with-date="<%= with_date %>" data-obj-class="<%= obj_class %>" data-obj-path="<%= obj_path %>">
     <input type="text" name="title" class="create_obj_name form-control" placeholder="Name for new obj (optional)">
     <button class="btn btn-primary">
       <%= "Create new #{obj_class}" %>

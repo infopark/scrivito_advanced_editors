@@ -84,7 +84,7 @@ It could be helpful to have a button to create a new obj. Like blog posts.
 To use the script, add a form with css class `create-obj`. Add data-obj-class and data-obj-path as attributes.
 
 ```xml
-<form class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path>
+<form class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path data-with-date="created_at">
   <button>
     Create a new Blog Post
   </button>
@@ -93,9 +93,9 @@ To use the script, add a form with css class `create-obj`. Add data-obj-class an
 
 For this default example you can also use a partial provided by this gem.
 
-    <%= render "scrivito_advanced_editors/create_obj", obj_class: "BlogPost", obj_path: @obj.path %>
+    <%= render "scrivito_advanced_editors/create_obj", obj_class: "BlogPost", obj_path: @obj.path, with_date: "created_at" %>
 
-In this Version a creatable obj class has to have an attribute named published_at
+If with is set to a value the obj class has to have an attribute with these value.
 
 ### View for inline help
 
