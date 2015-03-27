@@ -32,3 +32,9 @@
 .details-view abbr:after {
   content: "?";
 }
+
+.details-view .alert {
+  margin: 0px -15px;
+  border: none;
+  border-radius: 0;
+}

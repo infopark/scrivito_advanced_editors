@@ -20,7 +20,7 @@ If do not need all contained features, you can add them individually.
 
 ## Prerequisites
 
-If you want to use some stylings, you have to add a container with css class `details-view` arround your details view
+For a good look of all elements in details view window surround your view with a block element with css class `details-view`
 
     <div class="details-view">
       ... your Code ...
@@ -42,11 +42,13 @@ The easiest is to use the helper method.
 
 A block can be set to edit the view of one button. This is usefull if used to select icons or colors.
 
-    scrivito_toggle_button_editor(obj, attribute, list) do |text|
-      scrivito_tag(:button, obj, attribute, class: 'my_css_class', style: 'some_custome_styling', data: {editor: 'scrivito-toggle-button', content: text}) do
-        content_tag(:i, '', class: 'fa fa-icon') + text
-      end
-    end
+```ruby
+scrivito_toggle_button_editor(obj, attribute, list) do |text|
+  scrivito_tag(:button, obj, attribute, class: 'my_css_class', style: 'some_custome_styling', data: {editor: 'scrivito-toggle-button', content: text}) do
+    content_tag(:i, '', class: 'fa fa-icon') + text
+  end
+end
+```
 
 ### Slider
 
@@ -81,13 +83,15 @@ Simply add the editor to scrivito_tag and use `textarea` as tag.
 It could be helpful to have a button to create a new obj. Like blog posts.
 To use the script, add a form with css class `create-obj`. Add data-obj-class and data-obj-path as attributes.
 
-    <form class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path>
-      <button>
-        Create a new Blog Post
-      </button>
-    </form>
+```xml
+<form class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path>
+  <button>
+    Create a new Blog Post
+  </button>
+</form>
+```
 
-For this default example you can also use a partial in this gem.
+For this default example you can also use a partial provided by this gem.
 
     <%= render "scrivito_advanced_editors/create_obj", obj_class: "BlogPost", obj_path: @obj.path %>
 
@@ -96,6 +100,8 @@ In this Version a creatable obj class has to have an attribute named published_a
 ### View for inline help
 
 Some attributes are hard to describe in a short way. To give your editor a longer description you can add alerts in your view.
+
+    <div class="alert alert-info>Do it in this way or look here</div>
 
 An unobtrusive way is a small icon next to the headline. You can use an abbr if using bootstrap.
 
@@ -106,6 +112,13 @@ In default we render a "?" as content with css. but you can change this by your 
     .details-view abbr:after {
       content: " more details"
     }
+
+For seperation for your cms fields you can add a dom element arround your field. Colors and classes are given by bootstrap.
+
+    <div class="alert alert-info">
+      <h4>Attribute name</h4>
+      <%= scrivito_tag :div, @obj, :attribute %>
+    </div>
 
 ### Tab View
 
