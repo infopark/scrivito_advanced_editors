@@ -28,7 +28,7 @@ module ScrivitoAdvancedEditors
     end
 
     def enum_list(obj, attribute)
-      Scrivito::ObjClass.find(obj.class.to_s).attributes[attribute].values
+      obj.attribute_definitions[attribute].values
     end
 
     def css_class(elem, active)
