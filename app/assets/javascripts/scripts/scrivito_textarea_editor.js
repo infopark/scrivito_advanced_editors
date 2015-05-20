@@ -14,7 +14,6 @@
     };
 
     scrivito.on('load', function() {
-      console.log();
       return $('body').on('blur', textareaEditor.selector, function(event) {
         if(scrivito.in_editable_view()) {
           textareaEditor.blurFunction($(event.target));

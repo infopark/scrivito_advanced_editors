@@ -2,7 +2,6 @@
   'use strict';
 
   $(function() {
-
     App.ScrivitoListEditor = {
       // set selector for Editor
       selector: "[data-editor='scrivito-list-editor']",
