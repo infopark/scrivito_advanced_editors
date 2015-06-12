@@ -2,7 +2,7 @@
   overflow: hidden;
 }
 
-.scrivito_dialog button[data-editor="scrivito-toggle-button"] {
+.scrivito_dialog .button_list button[data-editor="scrivito-toggle-button"] {
   margin: 4px;
   min-width: 28px;
   text-shadow: 0 0 2px #222;
@@ -18,11 +18,11 @@
   float: left;
 }
 
-.scrivito_dialog button[data-editor='scrivito-toggle-button']:hover {
+.scrivito_dialog .button_list button[data-editor='scrivito-toggle-button']:hover {
   background: #888;
 }
 
-.scrivito_dialog button[data-editor='scrivito-toggle-button'].active {
+.scrivito_dialog .button_list button[data-editor='scrivito-toggle-button'].active {
   box-shadow: 0 0px 5px rgba(0,0,0,0.4) inset;
   background: #888;
 }
