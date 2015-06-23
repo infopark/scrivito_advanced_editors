@@ -18,17 +18,13 @@ Add this line to your editing Stylesheet manifest:
 
 If do not need all contained features, you can add them individually.
 
-## Prerequisites
-
-For a good look of all elements in details view window surround your view with a block element with css class `details-view`
-
-    <div class="details-view">
-      ... your Code ...
-    </div>
-
 ## Included Editors
 
-### Scrivito Toggle Button
+- [Scrivito Toggle Button Editor](#toggle_button)
+- [Scrivito Link List Editor](#link_list)
+- [Scrivito Textarea Editor](#textarea)
+
+### <a id="toggle_button"></a>Scrivito Toggle Button
 
 A helper method that renders buttons by a given list. Click on one to toggle the content.
 
@@ -36,9 +32,13 @@ A helper method that renders buttons by a given list. Click on one to toggle the
 
 The easiest is to use the helper method.
 
-    scrivito_toggle_button_editor(obj, attribute, list)
+```ruby
+# List is an array of strings
+scrivito_toggle_button_editor(obj, attribute, list)
 
-*If no list is given, the attribute type have to be an enum.*
+# If attribute is an enum, no list have to be set
+scrivito_toggle_button_editor(obj, attribute)
+```
 
 A block can be set to edit the view of one button. This is usefull if used to select icons or colors.
 
@@ -50,9 +50,7 @@ scrivito_toggle_button_editor(obj, attribute, list) do |text|
 end
 ```
 
-### Slider
-
-### List Editor
+### <a id="link_list"></a>List Editor
 
 This Editor can be used to edit word lists like tags.
 
@@ -66,7 +64,7 @@ The normal delimiter is `|`. If you need a different, add the data atrribute `da
 
     scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-list-editor', delimiter: ','})
 
-### Scrivito Textarea Editor
+### <a id="textarea"></a>Scrivito Textarea Editor
 
 Use this editor if you want to edit longer text but don't want the wysiwyg editor. Example for this could be descriptions in meta datas.
 
@@ -78,7 +76,13 @@ Simply add the editor to scrivito_tag and use `textarea` as tag.
 
 ## Included Extensions
 
-### Create new Obj Button
+- [Create New Obj](#new_obj)
+- [Inline Help](#inline_help)
+- [Tabs](#details_tabs)
+- [Color Picker](#color_picker)
+
+
+### <a id="new_obj"></a>Create new Obj Button
 
 It could be helpful to have a button to create a new obj. Like blog posts.
 To use the script, add a form with css class `create-obj`. Add data-obj-class and data-obj-path as attributes.
@@ -97,30 +101,29 @@ For this default example you can also use a partial provided by this gem.
 
 If with is set to a value the obj class has to have an attribute with these value.
 
-### View for inline help
+### <a id="inline_help"></a>View for inline help
 
 Some attributes are hard to describe in a short way. To give your editor a longer description you can add alerts in your view.
 
-    <div class="alert alert-info>Do it in this way or look here</div>
+```html
+<div class="alert alert-info">Do it in this way or look here</div>
+```
 
 An unobtrusive way is a small icon next to the headline. You can use an abbr if using bootstrap.
 
-    <h4>My attribute <abbr title="My long description" class="initialism"></abbr></h4>
+```html
+<h4>My attribute <abbr title="My long description" class="initialism"></abbr></h4>
+```
 
 In default we render a "?" as content with css. but you can change this by your own style.
 
-    .details-view abbr:after {
-      content: " more details"
-    }
+```css
+.details-view abbr:after {
+  content: " more details"
+}
+```
 
-For seperation for your cms fields you can add a dom element arround your field. Colors and classes are given by bootstrap.
-
-    <div class="alert alert-info">
-      <h4>Attribute name</h4>
-      <%= scrivito_tag :div, @obj, :attribute %>
-    </div>
-
-### Tab View
+### <a id="details_tabs"></a>Tab View
 
 The Tab view is to seperate your attributes if there are many at one cms object. This could be meta datas, datas for different devices or so on.
 So have a better survey over your params.
@@ -145,4 +148,12 @@ Set the class `active` to the tab list to select the initial active panel.
     scrivito_tags for panel 2 are here ....
   </div>
 </div>
+```
+
+### <a id="color_picker"></a>Color Picker
+
+An easy color picker using the toggle buttons can be used by adding this line:
+
+```ruby
+<%= render 'scrivito_advanced_editors/color_picker', widget: widget, attribute: :attribute %>
 ```
