@@ -3,26 +3,31 @@
   list-style: none;
   margin-top: 0;
   padding: 0;
+  box-shadow: 0 0 3px rgba(0,0,0,0.25);
+  background-color: #f3f3f3;
+  border-radius: 4px;
 }
 
 .tab-list li {
   float: left;
   padding: 5px 10px;
   cursor: pointer;
-  background: #ddd;
+  background: #f3f3f3;
+  color: #666;
+  padding: 8px;
 }
 
 .tab-list li:hover {
-  background: #bbb;
+  background: #fff;
 }
 
 .tab-list li.active {
   background: #444;
-  color: #eee;
+  color: #f3f3f3;
 }
 
 .tab-list li.active:hover {
-  background: #222;
+  background: #888;
 }
 
 .tab-panels .tab-panel {
