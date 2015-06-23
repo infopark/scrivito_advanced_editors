@@ -133,3 +133,6 @@ PLATFORMS
 
 DEPENDENCIES
   scrivito_advanced_editors!
+
+BUNDLED WITH
+   1.10.3
