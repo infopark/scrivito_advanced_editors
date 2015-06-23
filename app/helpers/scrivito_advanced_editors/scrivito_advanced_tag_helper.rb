@@ -12,8 +12,21 @@ module ScrivitoAdvancedEditors
 
       content_tag :div, buttons, class: 'button_list'
     end
-    
+
+    def scrivito_selectable_color_classes(class_name, attribute)
+      if Obj.respond_to?('selectable_color_classes')
+        Obj.selectable_color_classes(class_name, attribute)
+      else
+        fallback_colors
+      end
+    end
+
     private
+
+    def fallback_colors
+      %w(transparent black gray light-gray red green blue yellow)
+    end
+
     def fallback_toggle_button(obj, attribute, elem, active)
       scrivito_tag(:button, obj, attribute, class: css_class(elem, active), data: data_attribute(elem)) do
         elem.to_s
