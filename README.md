@@ -1,6 +1,6 @@
 # ScrivitoAdvancedEditors
 
-Provides some advanced Editors and details view extensions for scrivito
+Provides some advanced editors and partials for details views for scrivito.
 
 ## Installation
 
@@ -21,7 +21,7 @@ If do not need all contained features, you can add them individually.
 ## Included Editors
 
 - [Scrivito Toggle Button Editor](#toggle_button)
-- [Scrivito Link List Editor](#link_list)
+- [Scrivito String List Editor](#string_list)
 - [Scrivito Textarea Editor](#textarea)
 
 ### <a id="toggle_button"></a>Scrivito Toggle Button
@@ -50,7 +50,7 @@ scrivito_toggle_button_editor(obj, attribute, list) do |text|
 end
 ```
 
-### <a id="link_list"></a>List Editor
+### <a id="string_list"></a>String List Editor
 
 This Editor can be used to edit word lists like tags.
 
@@ -99,7 +99,7 @@ For this default example you can also use a partial provided by this gem.
 
     <%= render "scrivito_advanced_editors/create_obj", obj_class: "BlogPost", obj_path: @obj.path, with_date: "created_at" %>
 
-If with is set to a value the obj class has to have an attribute with these value.
+`with_date` specifies a date attribute. The actual date is stored in it.
 
 ### <a id="inline_help"></a>View for inline help
 
@@ -125,7 +125,7 @@ In default we render a "?" as content with css. but you can change this by your 
 
 ### <a id="details_tabs"></a>Tab View
 
-The Tab view is to seperate your attributes if there are many at one cms object. This could be meta datas, datas for different devices or so on.
+The Tab view is to seperate your attributes. This is useful if many of them are defined at the object. This could be meta datas, datas for different devices and so on.
 So have a better survey over your params.
 
 #### Usage
