@@ -29,7 +29,7 @@ module ScrivitoAdvancedEditors
 
     def fallback_toggle_button(obj, attribute, elem, active)
       scrivito_tag(:button, obj, attribute, class: css_class(elem, active), data: data_attribute(elem)) do
-        elem.to_s
+        elem.present? ? elem.to_s : 'none'
       end
     end
 
