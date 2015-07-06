@@ -39,13 +39,16 @@ scrivito_toggle_button_editor(obj, attribute, list)
 # If attribute is an enum, no list have to be set
 scrivito_toggle_button_editor(obj, attribute)
 
-# List can also be a hash in form
-{
-  caption: 'Text on Button',
-  content: 'Text will be saved',
-  css, 'css class of button',
-  stlye: 'style can be added to button'
-}
+# List can also be a list of hashes in form
+[
+  {
+    caption: 'Text visible on Button',
+    content: 'Text will be saved',
+    css, 'css class of button',
+    stlye: 'style can be added to button'
+  },
+  ...
+]
 ```
 
 A block can be set to edit the view of one button. This is usefull if used to select icons or colors.
