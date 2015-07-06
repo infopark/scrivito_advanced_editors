@@ -90,6 +90,7 @@ Simply add the editor to scrivito_tag and use `textarea` as tag.
 - [Create New Obj](#new_obj)
 - [Inline Help](#inline_help)
 - [Tabs](#details_tabs)
+- [Accordion](#details_accordion)
 - [Color Picker](#color_picker)
 
 
@@ -159,6 +160,28 @@ Set the class `active` to the tab list to select the initial active panel.
     scrivito_tags for panel 2 are here ....
   </div>
 </div>
+```
+
+### <a id="details_accordion"></a>Accordion
+
+Accordion can be used to seperate your attributes or hide them if they need a lot of space.
+
+It is also helpful if using render widgetlist in details view. A Tab Widget could be a good example for this. Use the Accordion view in your panels and render them in details view of the tab widget.
+
+#### Usage
+
+You have to add some blocks to your details view.
+
+```xml
+  <div class="scrivito-title-details">
+    <%= scrivito_tag :h4, widget, :title %>
+    <%= link_to '(details)', '#', 'data-scrivito-toggle-details' => widget.id %>
+    <div class="scrivito-details-<%= widget.id %>">
+      ... Content for your panel ...
+    </div>
+  </div>
+
+  ... next panel ...
 ```
 
 ### <a id="color_picker"></a>Color Picker

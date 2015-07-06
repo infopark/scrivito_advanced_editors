@@ -3,11 +3,11 @@
 
   $(function() {
     scrivito.on('content', function(content) {
-      $(content).find('[data-scrivito-tab-toggle-details]').on('click', function() {
-        var tab_details_link = $(this);
-        var tab_details_id = tab_details_link.attr('data-scrivito-tab-toggle-details');
-        var tab_details = tab_details_link.parent().find('.scrivito-tab-details-'+tab_details_id);
-        tab_details.toggle();
+      $(content).find('[data-scrivito-toggle-details]').on('click', function() {
+        var details_link = $(this);
+        var details_id = details_link.data('scrivito-toggle-details');
+        var details = details_link.parent().find('.scrivito-details-' + details_id);
+        details.toggle();
         return false;
       });
     });
