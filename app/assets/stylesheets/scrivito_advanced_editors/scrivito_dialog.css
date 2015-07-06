@@ -7,24 +7,24 @@
   content: "?";
 }
 
-.scrivito-tab-title-details {
+.scrivito-title-details {
   background: #ddd;
   padding: 10px;
   margin-bottom: 2px;
 }
 
-.scrivito-tab-title-details h4 {
+.scrivito-title-details h4 {
   display: inline;
 }
 
-[data-scrivito-tab-toggle-details] {
+[data-scrivito-toggle-details] {
   font-size: 12px;
   padding-left: 5px;
 }
 
-[class^=scrivito-tab-details-] {
+[class^=scrivito-details-] {
   display: none;
   background: #eee;
   padding: 10px;
-  margin-top: 5px;
+  margin: 5px -10px -10px;
 }
