@@ -21,6 +21,7 @@ If do not need all contained features, you can add them individually.
 ## Included Editors
 
 - [Scrivito Toggle Button Editor](#toggle_button)
+- [Scrivito Multi Select Button Editor](#multi_button)
 - [Scrivito String List Editor](#string_list)
 - [Scrivito Textarea Editor](#textarea)
 
@@ -51,7 +52,44 @@ scrivito_toggle_button_editor(obj, attribute)
 ]
 ```
 
-A block can be set to edit the view of one button. This is usefull if used to select icons or colors.
+A block can be set to edit the view of one button. This is usefull if used to select icons or colors. (We recommend to use the new hash feature instead)
+
+```ruby
+scrivito_toggle_button_editor(obj, attribute, list) do |text|
+  scrivito_tag(:button, obj, attribute, class: 'my_css_class', style: 'some_custome_styling', data: {editor: 'scrivito-toggle-button', content: text}) do
+    content_tag(:i, '', class: 'fa fa-icon') + text
+  end
+end
+```
+
+### <a id="multi_button"></a>Scrivito Multi Select Button
+
+This is also a helper method similar to the toggel button.
+
+#### Usage
+
+The easiest is to use the helper method.
+
+```ruby
+# List is an array of strings
+scrivito_multi_select_button_editor(obj, attribute, list)
+
+# If attribute is an enum, no list have to be set
+scrivito_multi_select_button_editor(obj, attribute)
+
+# List can also be a list of hashes in form
+[
+  {
+    caption: 'Text visible on Button',
+    content: 'Text will be saved',
+    css, 'css class of button',
+    stlye: 'style can be added to button'
+  },
+  ...
+]
+```
+
+A block can be set to edit the view of one button. This is usefull if used to select icons or colors. (We recommend to use the new hash feature instead)
 
 ```ruby
 scrivito_toggle_button_editor(obj, attribute, list) do |text|
