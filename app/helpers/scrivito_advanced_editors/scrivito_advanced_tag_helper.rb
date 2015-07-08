@@ -1,13 +1,21 @@
 module ScrivitoAdvancedEditors
   module ScrivitoAdvancedTagHelper
 
+    def scrivito_multi_select_button_editor(obj, attribute, list=nil)
+      scrivito_button_editor(obj, attribute, 'select', list)
+    end
+
     def scrivito_toggle_button_editor(obj, attribute, list=nil)
+      scrivito_button_editor(obj, attribute, 'toggle', list)
+    end
+
+    def scrivito_button_editor(obj, attribute, type, list=nil)
       list = enum_list(obj, attribute) if list.nil?
 
       buttons = if block_given?
         list.map { |elem| yield(elem) }.join('').html_safe
       else
-        list.map { |elem| fallback_toggle_button(obj, attribute, elem, obj.send(attribute)) }.join('').html_safe
+        list.map { |elem| fallback_toggle_button(obj, attribute, elem, obj.send(attribute), type) }.join('').html_safe
       end
 
       content_tag :div, buttons, class: 'button_list'
@@ -29,9 +37,9 @@ module ScrivitoAdvancedEditors
       ['','transparent', 'black', 'gray', 'light-gray', 'red', 'green', 'blue', 'yellow']
     end
 
-    def fallback_toggle_button(obj, attribute, elem, active)
+    def fallback_toggle_button(obj, attribute, elem, active, type)
       content = elem.is_a?(Hash) ? elem : content_hash(elem)
-      scrivito_tag(:button, obj, attribute, class: (css_class(elem, active) + content[:css]), style: content[:style], data: data_attribute(content)) do
+      scrivito_tag(:button, obj, attribute, class: (css_class(elem, active,) + content[:css]), style: content[:style], data: data_attribute(content, type)) do
         content[:caption]
       end
     end
@@ -54,9 +62,9 @@ module ScrivitoAdvancedEditors
       }
     end
 
-    def data_attribute(elem)
+    def data_attribute(elem, type)
       {
-        editor: 'scrivito-toggle-button',
+        editor: (type == 'toggle' ? 'scrivito-toggle-button' : 'scrivito-multi-select-button'),
         content: elem[:content],
       }
     end
@@ -66,7 +74,9 @@ module ScrivitoAdvancedEditors
     end
 
     def css_class(elem, active)
-      elem.to_s == active ? 'active' : ''
+      return '' if active.nil?
+      return active == elem ? 'active' : '' if active.is_a? String
+      active.include?(elem) ? 'active' : ''
     end
   end
 end
