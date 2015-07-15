@@ -45,8 +45,8 @@ scrivito_toggle_button_editor(obj, attribute)
   {
     caption: 'Text visible on Button',
     content: 'Text will be saved',
-    css, 'css class of button',
-    stlye: 'style can be added to button'
+    css: 'css class of button',
+    style: 'style can be added to button'
   },
   ...
 ]
@@ -82,8 +82,8 @@ scrivito_multi_select_button_editor(obj, attribute)
   {
     caption: 'Text visible on Button',
     content: 'Text will be saved',
-    css, 'css class of button',
-    stlye: 'style can be added to button'
+    css: 'css class of button',
+    style: 'style can be added to button'
   },
   ...
 ]
@@ -119,9 +119,9 @@ Use this editor if you want to edit longer text but don't want the wysiwyg edito
 
 #### Usage
 
-Simply add the editor to scrivito_tag and use `textarea` as tag.
+Simply add the editor to scrivito_tag.
 
-    scrivito_tag(:textarea, obj, attribute, data: {editor: 'scrivito-textarea-editor'})
+    scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-textarea-editor'})
 
 ## Included Extensions
 
