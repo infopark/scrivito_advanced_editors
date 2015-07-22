@@ -1,9 +1,9 @@
-.details-view abbr {
+.scrivito_dialog abbr {
   color: #444;
   font-size: 13px;
 }
 
-.details-view abbr:after {
+.scrivito_dialog abbr:after {
   content: "?";
 }
 
@@ -27,4 +27,13 @@
   background: #eee;
   padding: 10px;
   margin: 5px -10px -10px;
+}
+
+.scrivito_content_group {
+  h1,h2,h3,h4,h5,h6 {
+    small {
+      color: #bbb;
+      margin-left: 20px;
+    }
+  }
 }

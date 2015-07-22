@@ -173,6 +173,12 @@ In default we render a "?" as content with css. but you can change this by your 
 }
 ```
 
+An other way is to use `small`.
+
+```html
+<h4>My Attribute <small>This is a description for my attribute</small></h4>
+```
+
 ### <a id="details_tabs"></a>Tab View
 
 The Tab view is to seperate your attributes. This is useful if many of them are defined at the object. This could be meta datas, datas for different devices and so on.
