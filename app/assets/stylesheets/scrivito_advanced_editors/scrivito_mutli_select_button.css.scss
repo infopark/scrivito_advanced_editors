@@ -1,5 +1,13 @@
+.button_list.select {
+  overflow: hidden;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #888 inset;
+}
+
 .scrivito_dialog .button_list button[data-editor="scrivito-multi-select-button"] {
-  margin: 4px 0;
+  margin: 1px;
   min-width: 28px;
   text-shadow: 0 0 2px #222;
   background: #444;
@@ -8,18 +16,10 @@
   border: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   font-size: 15px;
-  border-radius: 0;
+  border-radius: 5px;
   line-height: 15px;
   width: initial;
   float: left;
-  &:first-child {
-    margin-left: 4px;
-    border-radius: 5px 0 0 5px;
-  }
-  &:last-child {
-    margin-right: 4px;
-    border-radius: 0 5px 5px 0;
-  }
 }
 
 .scrivito_dialog .button_list button[data-editor='scrivito-multi-select-button']:hover {

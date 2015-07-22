@@ -18,7 +18,7 @@ module ScrivitoAdvancedEditors
         list.map { |elem| fallback_toggle_button(obj, attribute, elem, obj.send(attribute), type) }.join('').html_safe
       end
 
-      content_tag :div, buttons, class: 'button_list'
+      content_tag :div, buttons, class: "button_list #{type}"
     end
 
     def scrivito_selectable_color_classes(class_name, attribute)
