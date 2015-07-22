@@ -10,10 +10,12 @@
 
       tab_list.on('click', 'li', function() {
         var target = $(this).data('panel-target');
-        $(target).siblings('.active').removeClass('active');
-        $(this).siblings('.active').removeClass('active');
-        $(target).addClass('active');
-        $(this).addClass('active');
+        if(!$(this).hasClass('inactive')) {
+          $(target).siblings('.active').removeClass('active');
+          $(this).siblings('.active').removeClass('active');
+          $(target).addClass('active');
+          $(this).addClass('active');
+        }
       });
     });
   });

@@ -187,6 +187,7 @@ Set the class `active` to the tab list to select the initial active panel.
 <ul class="tab-list">
   <li data-panel-target="#panel1" class="active">Elem1</li>
   <li data-panel-target="#panel2">Elem2</li>
+  <li data-panel-target="#panel3" class="inactive">This is an inactive element</li>
 </ul>
 
 <div class="tab-panels">
@@ -197,8 +198,16 @@ Set the class `active` to the tab list to select the initial active panel.
   <div class="tab-panel" id="panel2">
     scrivito_tags for panel 2 are here ....
   </div>
+
+  <div class="tab-panel" id="panel3">
+    scrivito_tags for panel 3 are here ....
+  </div>
 </div>
 ```
+
+Setting a list element inactive remove the click handler and make the font color brighter. This can be used to enable or disable panels by the value of other elems.
+
+For example you have an attribute type. Only if this attribute is set to `image` the last panel can be enabled to edit the attributes for this.
 
 ### <a id="details_accordion"></a>Accordion
 

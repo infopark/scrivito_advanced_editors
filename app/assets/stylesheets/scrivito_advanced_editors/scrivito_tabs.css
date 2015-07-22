@@ -8,26 +8,31 @@
   border-radius: 4px;
 }
 
-.tab-list li {
+.tab-list li[data-panel-target] {
   float: left;
-  padding: 5px 10px;
   cursor: pointer;
   background: #f3f3f3;
   color: #666;
   padding: 8px;
 }
 
-.tab-list li:hover {
+.tab-list li[data-panel-target]:hover {
   background: #fff;
 }
 
-.tab-list li.active {
+.tab-list li[data-panel-target].active {
   background: #444;
   color: #f3f3f3;
 }
 
-.tab-list li.active:hover {
+.tab-list li[data-panel-target].active:hover {
   background: #888;
+}
+
+.tab-list li.inactive {
+  color: #aaa;
+  float: left;
+  padding: 8px;
 }
 
 .tab-panels .tab-panel {
