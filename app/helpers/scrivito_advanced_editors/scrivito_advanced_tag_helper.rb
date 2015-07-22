@@ -58,7 +58,7 @@ module ScrivitoAdvancedEditors
         content: color,
         caption: (color.present? ? color : 'no selection'),
         style: '',
-        css: color,
+        css: "color-select #{color == "" ? "none" : color}",
       }
     end
 

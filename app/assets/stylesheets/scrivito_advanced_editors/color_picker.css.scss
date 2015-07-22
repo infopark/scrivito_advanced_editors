@@ -1,0 +1,10 @@
+.scrivito_dialog .button_list button[data-editor="scrivito-toggle-button"].color-select {
+  padding: 3px;
+  font-size: 0px;
+  line-height: 10px;
+  width: 45px;
+  height: 45px;
+  &.none {
+    font-size: 10px;
+  }
+}
