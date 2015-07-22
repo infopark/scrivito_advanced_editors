@@ -39,7 +39,7 @@ module ScrivitoAdvancedEditors
 
     def fallback_toggle_button(obj, attribute, elem, active, type)
       content = elem.is_a?(Hash) ? elem : content_hash(elem)
-      scrivito_tag(:button, obj, attribute, class: (css_class(elem, active,) + content[:css]), style: content[:style], data: data_attribute(content, type)) do
+      scrivito_tag(:button, obj, attribute, class: (content[:css] + " " + css_class(elem, active)), style: content[:style], data: data_attribute(content, type)) do
         content[:caption]
       end
     end
