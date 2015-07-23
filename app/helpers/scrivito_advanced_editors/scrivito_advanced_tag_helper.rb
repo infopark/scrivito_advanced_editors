@@ -76,7 +76,7 @@ module ScrivitoAdvancedEditors
     def css_class(elem, active)
       return '' if active.nil?
       return active == elem[:content] ? 'active' : '' if elem.is_a? Hash
-      return active == elem ? 'active' : '' if elem.is_a? String
+      return active == elem.to_s ? 'active' : '' if (elem.is_a?(String) || elem.is_a?(Fixnum))
       active.include?(elem) ? 'active' : ''
     end
   end
