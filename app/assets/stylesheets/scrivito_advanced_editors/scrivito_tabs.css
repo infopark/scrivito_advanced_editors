@@ -8,28 +8,27 @@
 .tab-list li[data-panel-target] {
   float: left;
   cursor: pointer;
-  background: #fff;
   color: #666;
   padding: 8px 14px;
-  border-radius: 5px 5px 0 0;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   margin: 5px 5px 0 0px;
+  border-radius: 5px 5px 0 0;
 }
 
 .tab-list li[data-panel-target]:hover {
-  background: #888;
-  color: #f3f3f3;
+  background: #eee;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 .tab-list li[data-panel-target].active {
-  background: #444;
-  color: #f3f3f3;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 .tab-list li.inactive {
   color: #aaa;
   float: left;
   padding: 8px;
+  margin: 5px 5px 0 0px;
 }
 
 .tab-panels {
