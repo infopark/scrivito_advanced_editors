@@ -47,7 +47,7 @@ module ScrivitoAdvancedEditors
     def content_hash(elem)
       {
         content: elem,
-        caption: (elem.present? ? elem.to_s : 'none'),
+        caption: (elem.present? ? elem.to_s : 'default'),
         style: '',
         css: ''
       }
@@ -58,7 +58,7 @@ module ScrivitoAdvancedEditors
         content: color,
         caption: (color.present? ? color : 'no selection'),
         style: '',
-        css: "color-select #{color == "" ? "none" : color}",
+        css: "color-select #{color == "" ? "default" : color}",
       }
     end
 
