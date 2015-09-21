@@ -56,9 +56,9 @@ module ScrivitoAdvancedEditors
     def color_hash(color)
       {
         content: color,
-        caption: (color.present? ? color : 'no selection'),
+        caption: (color.present? ? color : 'default'),
         style: '',
-        css: "color-select #{color == "" ? "default" : color}",
+        css: "color-select #{color == "" ? "default" : color} #{ color.present? ? '' : 'transparent_bg' }",
       }
     end
 
