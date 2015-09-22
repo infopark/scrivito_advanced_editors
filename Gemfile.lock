@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    scrivito_advanced_editors (0.0.17)
+    scrivito_advanced_editors (0.0.18)
       bundler
       font-awesome-rails
       rails
@@ -133,3 +133,6 @@ PLATFORMS
 
 DEPENDENCIES
   scrivito_advanced_editors!
+
+BUNDLED WITH
+   1.10.5
