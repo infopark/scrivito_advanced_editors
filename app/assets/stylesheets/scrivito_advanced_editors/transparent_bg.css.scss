@@ -1,4 +1,4 @@
-.scrivito_dialog .button_list button[data-editor="scrivito-toggle-button"].color-select:before {
+.scrivito_dialog .button_list .scrivito-toggle-button.color-select:before {
   content: '';
   background-color: #fff;
   background-image:
@@ -14,7 +14,7 @@
   bottom: 0;
 }
 
-.scrivito_dialog .button_list button[data-editor="scrivito-toggle-button"].color-select:after {
+.scrivito_dialog .button_list .scrivito-toggle-button.color-select:after {
   content: '';
   background-color: inherit;
   position: absolute;
