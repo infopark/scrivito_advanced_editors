@@ -64,6 +64,14 @@ This editor will change all multienum fields to buttons.
 
 #### Usage
 
+Activate this Editor in your editor selction.
+
+```ruby
+scrivito.select_editor(function(element, editor) {
+  editor.use("multi_select_editor");
+});
+```
+
 Using this Editor with multienum attributes will work automaticly.
 
 ```ruby
@@ -210,6 +218,14 @@ You have to add some blocks to your details view.
 ```
 
 ### <a id="color_picker"></a>Color Picker
+
+First, you have to activate the Editor in your editor selection.
+
+```ruby
+scrivito.select_editor(function(element, editor) {
+  editor.use("color_picker");
+});
+```
 
 Using the color picker use scrivito_tag and provide a color list to it.
 
