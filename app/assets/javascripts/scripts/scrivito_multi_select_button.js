@@ -5,12 +5,16 @@
     App.ScrivitoMultiSelectButton = {
       init_function: function(scrivito_tag) {
         var content = $(scrivito_tag).scrivito('content');
-        var values = $(scrivito_tag).is('[data-scrivito-field-type=multienum]') ? $(scrivito_tag).scrivito('allowed_values') : $(scrivito_tag).data('toggle-button-list');
+        var is_enum = $(scrivito_tag).is('[data-scrivito-field-type=multienum]');
+        var values = is_enum ? $(scrivito_tag).scrivito('allowed_values') : $(scrivito_tag).data('multi-select-list');
         var captions = $(scrivito_tag).data('multi-select-caption');
 
         $(scrivito_tag).addClass('button_list').addClass('select').html('');
         return $.each(values, function(index, value) {
           var css_class = ($.inArray(value, content) >= 0) ? 'active' : 'inactive'
+
+          if(!is_enum) css_class = (content.indexOf(value) > -1) ? 'active' : 'inactive'
+
           var caption = (captions && captions[value]) ? captions[value] : value
           $('<button></button>')
             .addClass('scrivito-multi-select-button')
@@ -25,16 +29,20 @@
         var newValue = $(event.currentTarget).data('content');
         var scrivito_tag = $(event.currentTarget).parent();
         var content = $(scrivito_tag).scrivito('content');
+        var array_content = Array.isArray(content) ? content : content.split('%|%')
+        if(content === "") array_content = []
 
         if($.inArray(newValue, content) >= 0) {
-          content.splice( content.indexOf(newValue), 1 );
+          array_content.splice( content.indexOf(newValue), 1 );
         } else {
-          content.push(newValue);
+          array_content.push(newValue);
         }
 
         $(event.currentTarget).toggleClass('active');
 
-        scrivito_tag.scrivito('save', content);
+        var to_save = $(scrivito_tag).is('[data-scrivito-field-type=multienum]') ? array_content : array_content.join('%|%');
+
+        scrivito_tag.scrivito('save', to_save);
       },
     };
 
