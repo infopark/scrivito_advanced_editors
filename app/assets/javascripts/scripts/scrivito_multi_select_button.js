@@ -2,46 +2,54 @@
   'use strict';
 
   $(function() {
-
     App.ScrivitoMultiSelectButton = {
-      // set selector for Editor
-      selector: "[data-editor='scrivito-multi-select-button']",
+      init_function: function(scrivito_tag) {
+        var content = $(scrivito_tag).scrivito('content');
+        var values = $(scrivito_tag).is('[data-scrivito-field-type=multienum]') ? $(scrivito_tag).scrivito('allowed_values') : $(scrivito_tag).data('toggle-button-list');
+        var captions = $(scrivito_tag).data('multi-select-caption');
 
-      // Function that will be called on scrivito load
-      initFunction: function() {},
-
-      // set function triggert on click
-      clickFunction: function(scrivito_tag) {
-        var content = scrivito_tag.data('content');
-        //var text = scrivito_tag.scrivito('content');
-        var buttons = scrivito_tag.parent().find('button');
-
-        var text = [];
-        $.each(buttons, function(index, elem) {
-          var button = $(elem);
-          if(button.hasClass('active')) text.push(button.data('content'));
+        $(scrivito_tag).addClass('button_list').addClass('select').html('');
+        return $.each(values, function(index, value) {
+          var css_class = ($.inArray(value, content) >= 0) ? 'active' : 'inactive'
+          var caption = (captions && captions[value]) ? captions[value] : value
+          $('<button></button>')
+            .addClass('scrivito-multi-select-button')
+            .addClass(css_class)
+            .data('content', value)
+            .html(caption)
+            .appendTo($(scrivito_tag));
         });
+      },
 
-        if(scrivito_tag.hasClass('active')) {
-          text.splice( text.indexOf(content), 1 );
+      clickFunction: function(event) {
+        var newValue = $(event.currentTarget).data('content');
+        var scrivito_tag = $(event.currentTarget).parent();
+        var content = $(scrivito_tag).scrivito('content');
+
+        if($.inArray(newValue, content) >= 0) {
+          content.splice( content.indexOf(newValue), 1 );
         } else {
-          text.push(content);
+          content.push(newValue);
         }
 
-        scrivito_tag.toggleClass('active');
+        $(event.currentTarget).toggleClass('active');
 
-        return scrivito_tag.scrivito('save', text);
+        scrivito_tag.scrivito('save', content);
       },
     };
 
-    // Set click event
     scrivito.on('load', function() {
-      if(scrivito.in_editable_view()) {
-        return $('body').on('click', ScrivitoMultiSelectButton.selector, function(event) {
-          ScrivitoMultiSelectButton.clickFunction($(event.target));
-        });
-      }
+      scrivito.define_editor("toggle_multi_select_editor", {
+        can_edit: function(element) {
+          var is_enum = $(element).is('[data-scrivito-field-type=multienum]')
+          var has_list = $(element).is('[data-multi-select-list]')
+          return is_enum || has_list;
+        },
+        activate: function(element) {
+          ScrivitoMultiSelectButton.init_function(element);
+          $(element).on('click', '.scrivito-multi-select-button', ScrivitoMultiSelectButton.clickFunction);
+        }
+      });
     });
   });
-
 })(jQuery, this);

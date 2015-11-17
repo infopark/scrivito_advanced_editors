@@ -6,27 +6,30 @@
   box-shadow: 0 0 5px #888 inset;
 }
 
-.scrivito_dialog .button_list button[data-editor="scrivito-multi-select-button"] {
+.scrivito_dialog .button_list button.scrivito-multi-select-button {
   margin: 1px;
   min-width: 28px;
   text-shadow: 0 0 2px #222;
-  background: #444;
-  color: #fff;
+  background: #ddd;
+  color: #888;
   outline: none !important;
   border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   font-size: 15px;
   border-radius: 5px;
   line-height: 15px;
   width: initial;
   float: left;
+  padding: 5px 15px;
 }
 
-.scrivito_dialog .button_list button[data-editor='scrivito-multi-select-button']:hover {
-  background: #888;
+.scrivito_dialog .button_list button.scrivito-multi-select-button:hover {
+  background: #ccc;
 }
 
-.scrivito_dialog .button_list button[data-editor='scrivito-multi-select-button'].active {
-  box-shadow: 0 0px 5px rgba(0,0,0,0.4) inset;
-  background: #888;
+.scrivito_dialog .button_list button.scrivito-multi-select-button.active {
+  box-shadow: 0 0px 5px rgba(0,0,0,0.2);
+  color: white;
+  background: #658b51;
 }
