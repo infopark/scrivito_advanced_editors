@@ -5,8 +5,8 @@
     App.ScrivitoToggleButton = {
       init_function: function(scrivito_tag) {
         var content = $(scrivito_tag).scrivito('content');
-        var values = $(scrivito_tag).is('[data-scrivito-field-type=enum]') ? $(scrivito_tag).scrivito('allowed_values') : $(scrivito_tag).data('toggle-button-caption');
-        var captions = $(scrivito_tag).data('captions');
+        var values = $(scrivito_tag).is('[data-scrivito-field-type=enum]') ? $(scrivito_tag).scrivito('allowed_values') : $(scrivito_tag).data('toggle-button-list');
+        var captions = $(scrivito_tag).data('toggle-button-caption');
 
         $(scrivito_tag).addClass('button_list').html('');
         return $.each(values, function(index, value) {
@@ -36,7 +36,7 @@
       scrivito.define_editor("toggle_button_editor", {
         can_edit: function(element) {
           var is_enum = $(element).is('[data-scrivito-field-type=enum]')
-          var has_list = $(element).is('[data-toggle-button-caption]')
+          var has_list = $(element).is('[data-toggle-button-list]')
           return is_enum || has_list;
         },
         activate: function(element) {
