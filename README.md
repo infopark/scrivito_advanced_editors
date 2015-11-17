@@ -22,96 +22,68 @@ If do not need all contained features, you can add them individually.
 
 - [Scrivito Toggle Button Editor](#toggle_button)
 - [Scrivito Multi Select Button Editor](#multi_button)
-- [Scrivito String List Editor](#string_list)
 - [Scrivito Textarea Editor](#textarea)
 
 ### <a id="toggle_button"></a>Scrivito Toggle Button
 
-A helper method that renders buttons by a given list. Click on one to toggle the content.
+This editor changes the normal enum editor of scrivito to a toggle button editor.
 
 #### Usage
 
-The easiest is to use the helper method.
+Activate this Editor in your editor selction.
 
 ```ruby
-# List is an array of strings
-scrivito_toggle_button_editor(obj, attribute, list)
-
-# If attribute is an enum, no list have to be set
-scrivito_toggle_button_editor(obj, attribute)
-
-# List can also be a list of hashes in form
-[
-  {
-    caption: 'Text visible on Button',
-    content: 'Text will be saved',
-    css: 'css class of button',
-    style: 'style can be added to button'
-  },
-  ...
-]
+scrivito.select_editor(function(element, editor) {
+  editor.use("toggle_button_editor");
+});
 ```
-
-A block can be set to edit the view of one button. This is usefull if used to select icons or colors. (We recommend to use the new hash feature instead)
+Using this Editor with enum attributes will work automaticly.
 
 ```ruby
-scrivito_toggle_button_editor(obj, attribute, list) do |text|
-  scrivito_tag(:button, obj, attribute, class: 'my_css_class', style: 'some_custome_styling', data: {editor: 'scrivito-toggle-button', content: text}) do
-    content_tag(:i, '', class: 'fa fa-icon') + text
-  end
-end
+# in details view my_class/details
+scrivito_tag(:div, @obj, :my_enum_attribute)
 ```
+
+You can also use this Editor with string elements. In this case, you have to give the list to the scrivito_tag.
+
+```ruby
+scrivito_tag(:div, @obj, my_string_attribute, data: {toggle_button_list: ['elem1', 'elem2', 'elem3']})
+```
+
+If you need localisation for your editors or want to provide mor information to a single value, you can set an data attribute.
+
+```ruby
+scrivito_tag(:div, @obj, my_string_attribute, data: {toggle_button_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
+```
+
+This List do not have to bee full. If you do not provide a caption for an element, the element will be used.
 
 ### <a id="multi_button"></a>Scrivito Multi Select Button
 
-This is also a helper method similar to the toggel button.
+This editor will change all multienum fields to buttons.
 
 #### Usage
 
-The easiest is to use the helper method.
+Using this Editor with multienum attributes will work automaticly.
 
 ```ruby
-# List is an array of strings
-scrivito_multi_select_button_editor(obj, attribute, list)
-
-# If attribute is an enum, no list have to be set
-scrivito_multi_select_button_editor(obj, attribute)
-
-# List can also be a list of hashes in form
-[
-  {
-    caption: 'Text visible on Button',
-    content: 'Text will be saved',
-    css: 'css class of button',
-    style: 'style can be added to button'
-  },
-  ...
-]
+# in details view my_class/details
+scrivito_tag(:div, @obj, :my_enum_attribute)
 ```
 
-A block can be set to edit the view of one button. This is usefull if used to select icons or colors. (We recommend to use the new hash feature instead)
+You can also use this Editor with string elements. In this case, you have to give the list to the scrivito_tag.
 
 ```ruby
-scrivito_toggle_button_editor(obj, attribute, list) do |text|
-  scrivito_tag(:button, obj, attribute, class: 'my_css_class', style: 'some_custome_styling', data: {editor: 'scrivito-toggle-button', content: text}) do
-    content_tag(:i, '', class: 'fa fa-icon') + text
-  end
-end
+scrivito_tag(:div, @obj, my_string_attribute, data: {multi_select_list: ['elem1', 'elem2', 'elem3']})
 ```
 
-### <a id="string_list"></a>String List Editor
+If you need localisation for your editors or want to provide mor information to a single value, you can set an data attribute.
 
-This Editor can be used to edit word lists like tags.
+```ruby
+scrivito_tag(:div, @obj, my_string_attribute, data: {multi_select_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
+```
 
-#### Usage
-
-Simply specify the editor on scrivito_tag.
-
-    scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-list-editor'})
-
-The normal delimiter is `|`. If you need a different, add the data atrribute `data-delimiter`.
-
-    scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-list-editor', delimiter: ','})
+This List do not have to bee full. If you do not provide a caption for an element, the element will be used.
 
 ### <a id="textarea"></a>Scrivito Textarea Editor
 
@@ -239,8 +211,27 @@ You have to add some blocks to your details view.
 
 ### <a id="color_picker"></a>Color Picker
 
-An easy color picker using the toggle buttons can be used by adding this line:
+Using the color picker use scrivito_tag and provide a color list to it.
 
 ```ruby
-<%= render 'scrivito_advanced_editors/color_picker', widget: widget, attribute: :attribute %>
+<%= scrivito_tag :div, @obj, :background_color, data: {colors_list: ['red', 'green', 'blue']} %>
+```
+
+After this, you need the css for the colors.
+
+```ruby
+.red {
+  background_color: red !important;
+}
+
+.green {
+  background_color: green !important;
+}
+
+// Also more styles can be defined, like text color if background is to dark.
+.blue {
+  background_color: blue !important;
+  color: #fff !important;
+}
+.blue * { color: #fff; }
 ```
