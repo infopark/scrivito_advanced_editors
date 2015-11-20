@@ -1,15 +1,15 @@
-.scrivito_dialog .button_list {
+.scrivito_dialog .toggle_button_list {
   overflow: hidden;
   position: relative;
 }
 
-.scrivito_dialog [data-scrivito-field-type="enum"].button_list {
+.scrivito_dialog [data-scrivito-field-type="enum"].toggle_button_list {
   background: transparent;
   border: none;
   padding: 0;
 }
 
-.scrivito_dialog .button_list .scrivito-toggle-button {
+.scrivito_dialog .toggle_button_list .scrivito-toggle-button {
   margin: 4px;
   min-width: 28px;
   background: #ddd;
@@ -26,17 +26,17 @@
   padding: 5px 15px;
 }
 
-.scrivito_dialog .button_list .scrivito-toggle-button:hover {
+.scrivito_dialog .toggle_button_list .scrivito-toggle-button:hover {
   background: #ccc;
 }
 
-.scrivito_dialog .button_list .scrivito-toggle-button.active {
+.scrivito_dialog .toggle_button_list .scrivito-toggle-button.active {
   box-shadow: 0 0px 5px rgba(0,0,0,0.2);
   color: white;
   background: #658b51;
 }
 
-.scrivito_dialog .button_list .scrivito-toggle-button.color-select {
+.scrivito_dialog .toggle_button_list .scrivito-toggle-button.color-select {
   background: transparent;
   transition: width 0.3s, height 0.3s, margin 0.3s;
   position: relative;
@@ -44,7 +44,7 @@
   margin: 7px 4px;
 }
 
-.scrivito_dialog .button_list .scrivito-toggle-button.color-select.active {
+.scrivito_dialog .toggle_button_list .scrivito-toggle-button.color-select.active {
   background: transparent;
   height: 51px;
   width: 51px;

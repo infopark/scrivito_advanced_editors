@@ -11,7 +11,7 @@ module ScrivitoAdvancedEditors
 
     def scrivito_toggle_button_editor(obj, attribute, list=nil)
       if list
-        scrivito_tag(:div, obj, attribute, data: {toggle_list: list})
+        scrivito_tag(:div, obj, attribute, data: {toggle_button_list: list})
       else
         scrivito_tag(:div, obj, attribute)
       end
@@ -25,6 +25,10 @@ module ScrivitoAdvancedEditors
       end
 
       colors
+    end
+
+    def scrivito_details_tab_index(identifier)cookies[identifier];
+      cookies[scrivito_tab_identifier] == identifier ?  cookies['scrivito_tab_index'] : "0"
     end
 
     private

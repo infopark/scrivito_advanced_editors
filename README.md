@@ -53,7 +53,7 @@ scrivito_tag(:div, @obj, my_string_attribute, data: {toggle_button_list: ['elem1
 If you need localisation for your editors or want to provide mor information to a single value, you can set an data attribute.
 
 ```ruby
-scrivito_tag(:div, @obj, my_string_attribute, data: {toggle_button_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
+scrivito_tag(:div, @obj, my_enum_attribute, data: {toggle_button_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
 ```
 
 This List do not have to bee full. If you do not provide a caption for an element, the element will be used.

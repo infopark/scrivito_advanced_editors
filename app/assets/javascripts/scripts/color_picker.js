@@ -7,7 +7,7 @@
         var content = $(scrivito_tag).scrivito('content');
         var values = $(scrivito_tag).data('colors-list');
 
-        $(scrivito_tag).addClass('button_list').html('');
+        $(scrivito_tag).addClass('toggle_button_list').html('');
         return $.each(values, function(index, color) {
           var css_class = (color === content) ? 'active' : 'inactive'
           $('<button></button>')
