@@ -27,10 +27,6 @@ module ScrivitoAdvancedEditors
       colors
     end
 
-    def scrivito_details_tab_index(identifier)cookies[identifier];
-      cookies[scrivito_tab_identifier] == identifier ?  cookies['scrivito_tab_index'] : "0"
-    end
-
     private
 
     def fallback_colors
