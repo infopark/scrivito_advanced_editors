@@ -2,12 +2,12 @@
   'use strict';
 
   var ScrivitoToggleButton = {
-    init_function: function(scrivito_tag) {
-      var content = $(scrivito_tag).scrivito('content');
-      var values = $(scrivito_tag).is('[data-scrivito-field-type=enum]') ? $(scrivito_tag).scrivito('allowed_values') : $(scrivito_tag).data('toggle-button-list');
-      var captions = $(scrivito_tag).data('toggle-button-caption');
+    init_function: function($scrivito_tag) {
+      var content = $scrivito_tag.scrivito('content');
+      var values = $scrivito_tag.is('[data-scrivito-field-type=enum]') ? $scrivito_tag.scrivito('allowed_values') : $scrivito_tag.data('toggle-button-list');
+      var captions = $scrivito_tag.data('toggle-button-caption');
 
-      $(scrivito_tag).addClass('toggle_button_list').html('');
+      $scrivito_tag.addClass('toggle_button_list').html('');
       return $.each(values, function(index, value) {
         var css_class = (value.toString() === content) ? 'active' : 'inactive'
         var caption = (captions && captions[value]) ? captions[value] : value
@@ -16,7 +16,7 @@
           .addClass(css_class)
           .data('content', value)
           .html(caption)
-          .appendTo($(scrivito_tag));
+          .appendTo($scrivito_tag);
       });
     },
 
@@ -44,4 +44,5 @@
       }
     });
   });
+
 })(jQuery, this);
