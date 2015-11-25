@@ -20,7 +20,7 @@ $(function() {
         }
 
         if(with_date != "") {
-          jQuery.extend({with_date: now}, options)
+          jQuery.extend({options['with_date']: now}, options)
         }
 
         return scrivito.create_obj(options).done(function(data) {
