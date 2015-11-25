@@ -32,11 +32,12 @@
   margin: 5px -10px -10px;
 }
 
-.scrivito_content_group {
-  h1,h2,h3,h4,h5,h6 {
-    small {
-      color: #bbb;
-      margin-left: 20px;
-    }
-  }
+.scrivito_content_group h1 small,
+.scrivito_content_group h2 small,
+.scrivito_content_group h3 small,
+.scrivito_content_group h4 small,
+.scrivito_content_group h5 small,
+.scrivito_content_group h6 small {
+  color: #bbb;
+  margin-left: 20px;
 }

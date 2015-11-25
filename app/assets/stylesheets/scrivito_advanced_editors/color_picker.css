@@ -4,7 +4,8 @@
   line-height: 10px;
   width: 45px;
   height: 45px;
-  &.none {
-    font-size: 10px;
-  }
+}
+
+.scrivito_dialog .toggle_button_list .scrivito-toggle-button.color-select.none {
+  font-size: 10px;
 }
