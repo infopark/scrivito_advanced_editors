@@ -2,7 +2,7 @@
   'use strict';
 
   scrivito.on('content', function(content) {
-    var tab_list = content.find('.tab-list');
+    var tab_list = $(content).find('.tab-list');
     var active = tab_list.find('.active');
 
     $(active.data('panel-target')).addClass('active');
