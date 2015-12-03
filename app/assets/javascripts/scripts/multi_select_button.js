@@ -31,17 +31,17 @@
       var array_content = Array.isArray(content) ? content : content.split('%|%')
       if(content === "") array_content = []
 
-      if($.inArray(newValue, content) >= 0) {
-        array_content.splice( content.indexOf(newValue), 1 );
+      if($.inArray(newValue, array_content) >= 0) {
+        array_content.splice( array_content.indexOf(newValue), 1 );
       } else {
         array_content.push(newValue);
       }
 
-      $(event.currentTarget).toggleClass('active');
-
       var to_save = $(scrivito_tag).is('[data-scrivito-field-type=multienum]') ? array_content : array_content.join('%|%');
 
-      scrivito_tag.scrivito('save', to_save);
+      scrivito_tag.scrivito('save', to_save).then(function() {
+        $(event.currentTarget).toggleClass('active');
+      });
     },
   };
 

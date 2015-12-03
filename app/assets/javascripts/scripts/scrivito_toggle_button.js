@@ -24,10 +24,10 @@
       var text = $(event.currentTarget).data('content');
       var scrivito_tag = $(event.currentTarget).parent();
 
-      scrivito_tag.find('.active').removeClass('active');
-      $(event.currentTarget).addClass('active');
-
-      scrivito_tag.scrivito('save', text);
+      scrivito_tag.scrivito('save', text).then(function() {
+        scrivito_tag.find('.active').removeClass('active');
+        $(event.currentTarget).addClass('active');
+      });
     },
   };
 
