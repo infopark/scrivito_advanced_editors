@@ -1,70 +1,78 @@
 # ScrivitoAdvancedEditors
 
-Provides some advanced editors and partials for details views for scrivito.
+Provides some advanced editors and partials for Scrivito's details views.
 
 ## Installation
 
-Add to your gemfile
+Add to your gemfile:
 
     gem 'scrivito_advanced_editors'
 
-Add this line to your application Stylesheet manifest:
+Add this line to your application stylesheet manifest:
 
     *= require scrivito_advanced_editors
 
-Add this line to your editing Stylesheet manifest:
+Add this line to your JavaScript manifest:
 
     //= require scrivito_advanced_editors
 
-If do not need all contained features, you can add them individually.
+If you do not need all the features contained in the library, you can specify them individually.
+
+    //= require scrivito_advanced_editors/multi_select_button
+    //= require scrivito_advanced_editors/toggle_buttons
+
+    //= require scrivito_advanced_editors/scrivito_tabs
+    //= require scrivito_advanced_editors/details_accordion
+    //= require scrivito_advanced_editors/color_picker
+    //= require scrivito_advanced_editors/create_obj
 
 ## Included Editors
 
 - [Scrivito Toggle Button Editor](#toggle_button)
-- [Scrivito Multi Select Button Editor](#multi_button)
+- [Scrivito Multi-Selection Button Editor](#multi_button)
 - [Scrivito Textarea Editor](#textarea)
 
 ### <a id="toggle_button"></a>Scrivito Toggle Button
 
-This editor changes the normal enum editor of scrivito to a toggle button editor.
+This editor changes Scrivito's normal `enum` editor to a toggle button editor.
 
 #### Usage
 
-Activate this Editor in your editor selction.
+Activate this editor in your editor selection:
 
 ```ruby
 scrivito.select_editor(function(element, editor) {
   editor.use("toggle_button_editor");
 });
 ```
-Using this Editor with enum attributes will work automaticly.
+Using this editor with `enum` attributes works automatically.
 
 ```ruby
 # in details view my_class/details
 scrivito_tag(:div, @obj, :my_enum_attribute)
 ```
 
-You can also use this Editor with string elements. In this case, you have to give the list to the scrivito_tag.
+You can also use this editor with string elements. In this case, just pass the list to the `scrivito_tag` helper:
 
 ```ruby
-scrivito_tag(:div, @obj, my_string_attribute, data: {toggle_button_list: ['elem1', 'elem2', 'elem3']})
+scrivito_tag(:div, @obj, :my_string_attribute, data: {toggle_button_list: ['elem1', 'elem2', 'elem3']})
 ```
 
-If you need localisation for your editors or want to provide mor information to a single value, you can set an data attribute.
+If you require localisation for your editors or want to provide more details to a single button, you can set a data attribute:
 
 ```ruby
-scrivito_tag(:div, @obj, my_enum_attribute, data: {toggle_button_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
+scrivito_tag(:div, @obj, :my_enum_attribute, data: {toggle_button_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
 ```
 
-This List do not have to bee full. If you do not provide a caption for an element, the element will be used.
+This list does not need to be complete. If you do not provide a caption for an element, the source element is used.
 
-### <a id="multi_button"></a>Scrivito Multi Select Button
+### <a id="multi_button"></a>Scrivito Multi-Selection Button
 
-This editor will change all multienum fields to buttons.
+This editor changes all `multienum` fields to buttons.
 
 #### Usage
 
-Activate this Editor in your editor selction.
+Activate this editor in your editor selction:
 
 ```ruby
 scrivito.select_editor(function(element, editor) {
@@ -72,36 +80,26 @@ scrivito.select_editor(function(element, editor) {
 });
 ```
 
-Using this Editor with multienum attributes will work automaticly.
+Using this editor with `multienum` attributes works automatically:
 
 ```ruby
 # in details view my_class/details
 scrivito_tag(:div, @obj, :my_enum_attribute)
 ```
 
-You can also use this Editor with string elements. In this case, you have to give the list to the scrivito_tag.
+You can also use this editor with string elements. In this case, just pass the list to the `scrivito_tag` helper:
 
 ```ruby
-scrivito_tag(:div, @obj, my_string_attribute, data: {multi_select_list: ['elem1', 'elem2', 'elem3']})
+scrivito_tag(:div, @obj, :my_string_attribute, data: {multi_select_list: ['elem1', 'elem2', 'elem3']})
 ```
 
-If you need localisation for your editors or want to provide mor information to a single value, you can set an data attribute.
+If you require localisation for your editors or want to provide more details to a single button, you can set a data attribute:
 
 ```ruby
-scrivito_tag(:div, @obj, my_string_attribute, data: {multi_select_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
+scrivito_tag(:div, @obj, :my_string_attribute, data: {multi_select_caption: {'elem1' => 'caption1', 'elem2' => 'caption2', 'elem3' => 'caption3']})
 ```
 
-This List do not have to bee full. If you do not provide a caption for an element, the element will be used.
-
-### <a id="textarea"></a>Scrivito Textarea Editor
-
-Use this editor if you want to edit longer text but don't want the wysiwyg editor. Example for this could be descriptions in meta datas.
-
-#### Usage
-
-Simply add the editor to scrivito_tag.
-
-    scrivito_tag(:div, obj, attribute, data: {editor: 'scrivito-textarea-editor'})
+This list does not need to be complete. If you do not provide a caption for an element, the source element is used.
 
 ## Included Extensions
 
@@ -111,11 +109,10 @@ Simply add the editor to scrivito_tag.
 - [Accordion](#details_accordion)
 - [Color Picker](#color_picker)
 
+### <a id="new_obj"></a>Button for creating a new CMS object
 
-### <a id="new_obj"></a>Create new Obj Button
-
-It could be helpful to have a button to create a new obj. Like blog posts.
-To use the script, add a form with css class `create-obj`. Add data-obj-class and data-obj-path as attributes.
+It could be helpful to have a button for creating a new CMS object like a blog post.
+To use the script, add a form that uses the `create-obj`  CSS class. Also, add `data-obj-class` and `data-obj-path` as attributes:
 
 ```xml
 <form class="create-obj" data-obj-class="BlogPost" data-obj-path=@obj.path data-with-date="created_at">
@@ -125,27 +122,27 @@ To use the script, add a form with css class `create-obj`. Add data-obj-class an
 </form>
 ```
 
-For this default example you can also use a partial provided by this gem.
+For this simple example, you can also use a partial provided by this gem.
 
     <%= render "scrivito_advanced_editors/create_obj", obj_class: "BlogPost", obj_path: @obj.path, with_date: "created_at" %>
 
-`with_date` specifies a date attribute. The actual date is stored in it.
+`with_date` optionally specifies a date attribute.
 
-### <a id="inline_help"></a>View for inline help
+### <a id="inline_help"></a>View helper for explanations in details views
 
-Some attributes are hard to describe in a short way. To give your editor a longer description you can add alerts in your view.
+Some attributes are hard to describe in short. To provide an editor with a more detailed description, you can add alerts to your view. This feature requires `bootstrap` to be enabled in your app.
 
 ```html
 <div class="alert alert-info">Do it in this way or look here</div>
 ```
 
-An unobtrusive way is a small icon next to the headline. You can use an abbr if using bootstrap.
+To offer help unobtrusively, a small icon next to the headline can be used. For this, an `abbr` tag is suitable:
 
 ```html
 <h4>My attribute <abbr title="My long description" class="initialism"></abbr></h4>
 ```
 
-In default we render a "?" as content with css. but you can change this by your own style.
+By default, we render a "?" as content using CSS, but you can change this in accordance with your own styles:
 
 ```css
 .details-view abbr:after {
@@ -153,7 +150,7 @@ In default we render a "?" as content with css. but you can change this by your 
 }
 ```
 
-An other way is to use `small`.
+Another option is to use `small`:
 
 ```html
 <h4>My Attribute <small>This is a description for my attribute</small></h4>
@@ -161,13 +158,12 @@ An other way is to use `small`.
 
 ### <a id="details_tabs"></a>Tab View
 
-The Tab view is to seperate your attributes. This is useful if many of them are defined at the object. This could be meta datas, datas for different devices and so on.
-So have a better survey over your params.
+The purpose of the tab view is to separate your attributes. This is useful if your object contains many of them, such as meta data, data for different devices, and so on.
 
 #### Usage
 
-You have to add some blocks to your details view.
-Set the class `active` to the tab list to select the initial active panel.
+To utilize the tab view, please add some blocks to your details view.
+Use the `active` class to select the initially active panel of the tab list:
 
 ```xml
 <ul class="tab-list">
@@ -191,19 +187,17 @@ Set the class `active` to the tab list to select the initial active panel.
 </div>
 ```
 
-Setting a list element inactive remove the click handler and make the font color brighter. This can be used to enable or disable panels by the value of other elems.
-
-For example you have an attribute type. Only if this attribute is set to `image` the last panel can be enabled to edit the attributes for this.
+Using the `inactive` class for a list element removes the click handler and makes the font color brighter. Conditionally enabling and disabling click handlers lets you enable or disable panels depending on the values of other elements.
 
 ### <a id="details_accordion"></a>Accordion
 
-Accordion can be used to seperate your attributes or hide them if they need a lot of space.
+The accordion can be used to separate your attributes into groups or hide them if they are too space-consuming.
 
-It is also helpful if using render widgetlist in details view. A Tab Widget could be a good example for this. Use the Accordion view in your panels and render them in details view of the tab widget.
+It is also helpful for rendering a `widgetlist` in a details view. A tab widget could be a good example for this. You can use the accordion view in your panels and render them in details view of the tab widget.
 
 #### Usage
 
-You have to add some blocks to your details view.
+To utilize the accordion, please add some blocks to your details view.
 
 ```xml
   <div class="scrivito-title-details">
@@ -219,7 +213,7 @@ You have to add some blocks to your details view.
 
 ### <a id="color_picker"></a>Color Picker
 
-First, you have to activate the Editor in your editor selection.
+First, activate the editor in your editor selection callback:
 
 ```ruby
 scrivito.select_editor(function(element, editor) {
@@ -227,13 +221,13 @@ scrivito.select_editor(function(element, editor) {
 });
 ```
 
-Using the color picker use scrivito_tag and provide a color list to it.
+To make the color picker available, use `scrivito_tag` and provide it with a color list:
 
 ```ruby
 <%= scrivito_tag :div, @obj, :background_color, data: {colors_list: ['red', 'green', 'blue']} %>
 ```
 
-After this, you need the css for the colors.
+Then specify the CSS for the colors:
 
 ```ruby
 .red {
