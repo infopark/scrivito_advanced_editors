@@ -1,3 +1,3 @@
 module ScrivitoAdvancedEditors
-  VERSION = "0.90.0.rc3"
+  VERSION = "0.90.0"
 end
