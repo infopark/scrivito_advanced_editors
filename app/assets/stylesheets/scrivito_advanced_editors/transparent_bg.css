@@ -16,7 +16,8 @@
 
 .scrivito_dialog .toggle_button_list .scrivito-toggle-button.color-select:after {
   content: '';
-  background-color: inherit;
+  background: inherit;
+  background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
