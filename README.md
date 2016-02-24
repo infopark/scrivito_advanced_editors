@@ -76,7 +76,7 @@ Activate this editor in your editor selction:
 
 ```ruby
 scrivito.select_editor(function(element, editor) {
-  editor.use("multi_select_editor");
+  editor.use("toggle_multi_select_editor");
 });
 ```
 
