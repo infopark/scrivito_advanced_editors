@@ -6,12 +6,14 @@
       var content = $(scrivito_tag).scrivito('content');
       var values = $(scrivito_tag).data('colors-list');
 
-      $(scrivito_tag).addClass('toggle_button_list').html('');
+      var with_text = $(scrivito_tag).data('scrivito-color-picker-show-text') == true;
+      if(with_text) $(scrivito_tag).addClass('with-text');
+
+      $(scrivito_tag).addClass('scrivito_color_picker').html('');
       return $.each(values, function(index, color) {
         var css_class = (color === content) ? 'active' : 'inactive'
         $('<button></button>')
-          .addClass('scrivito-toggle-button')
-          .addClass('color-select')
+          .addClass('scrivito-color-select')
           .addClass(color === "" ? "default" : color)
           .addClass(color !== "" ? '' : 'transparent_bg')
           .addClass(css_class)
@@ -39,7 +41,7 @@
       },
       activate: function(element) {
         ScrivitoColorPicker.init_function(element);
-        $(element).on('click', '.scrivito-toggle-button', ScrivitoColorPicker.clickFunction);
+        $(element).on('click', '.scrivito-color-select', ScrivitoColorPicker.clickFunction);
       }
     });
   });
