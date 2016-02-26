@@ -215,7 +215,7 @@ To utilize the accordion, please add some blocks to your details view.
 
 First, activate the editor in your editor selection callback:
 
-```ruby
+```js
 scrivito.select_editor(function(element, editor) {
   editor.use("color_picker");
 });
@@ -224,12 +224,12 @@ scrivito.select_editor(function(element, editor) {
 To make the color picker available, use `scrivito_tag` and provide it with a color list:
 
 ```ruby
-<%= scrivito_tag :div, @obj, :background_color, data: {colors_list: ['red', 'green', 'blue']} %>
+scrivito_tag :div, @obj, :background_color, data: {colors_list: ['red', 'green', 'blue']}
 ```
 
 Then specify the CSS for the colors:
 
-```ruby
+```css
 .red {
   background_color: red !important;
 }
@@ -245,3 +245,13 @@ Then specify the CSS for the colors:
 }
 .blue * { color: #fff; }
 ```
+
+You can add the `data-scrivito-color-picker-show-text` attribute and set it to `true` to show a short text to visualize the text style for a color.
+
+```ruby
+scrivito_tag :div, @obj, :background_color, data: {
+  colors_list: ['red', 'green', 'blue'],
+  scrivito_color_picker_show_text: true
+}
+```
+
