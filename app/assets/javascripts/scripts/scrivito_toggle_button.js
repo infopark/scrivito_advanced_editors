@@ -15,7 +15,7 @@
   };
 
   scrivito.on('load', function() {
-    return scrivito.define_editor('enum', scrivito.editors.enum_editor);
+    return scrivito.define_editor('toggle_button_editor', scrivito.editors.enum_editor);
   });
 
   activate = function(cmsField) {
@@ -23,7 +23,7 @@
     var captions = cmsField.data('toggle-button-caption');
     cmsField.html(renderTemplate(cmsField.scrivito('content'), validValues, captions));
     return cmsField.find('.scrivito_enum_editor li').on('click', function() {
-      return handleClick(cmsField, $(this));
+      handleClick(cmsField, $(this));
     });
   };
 
@@ -35,7 +35,7 @@
       validValue = validValues[i];
       caption = (captions && captions[validValue]) ? captions[validValue] : validValue;
       li = $('<li></li>');
-      li.text(caption);
+      li.html(caption);
       li.data('scrivito-toggle-value', validValue);
       if (validValue === value) {
         li.addClass('scrivito_enum_active');
@@ -47,14 +47,15 @@
 
   handleClick = function(cmsField, clickedItem) {
     if (clickedItem.hasClass('scrivito_enum_active')) {
-      clickedItem.removeClass('scrivito_enum_active');
-      save(cmsField, null);
+      if(!cmsField.is('[data-scrivito-toggle-button-enable=false]')) {
+        clickedItem.removeClass('scrivito_enum_active');
+        save(cmsField, null);
+      }
     } else {
       cmsField.find('li').removeClass('scrivito_enum_active');
       clickedItem.addClass('scrivito_enum_active');
       save(cmsField, clickedItem.data('scrivito-toggle-value'));
     }
-    return false;
   };
 
   save = function(cmsField, value) {

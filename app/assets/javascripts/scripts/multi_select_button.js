@@ -35,7 +35,7 @@
       validValue = validValues[i];
       caption = (captions && captions[validValue]) ? captions[validValue] : validValue;
       li = $('<li></li>');
-      li.text(caption);
+      li.html(caption);
       li.data('scrivito-select-value', validValue);
       if (indexOf.call(values, validValue) >= 0) {
         li.addClass('scrivito_enum_active');

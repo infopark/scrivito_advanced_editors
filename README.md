@@ -66,6 +66,12 @@ scrivito_tag(:div, @obj, :my_enum_attribute, data: {toggle_button_caption: {'ele
 
 This list does not need to be complete. If you do not provide a caption for an element, the source element is used.
 
+Normaly the toggle button editor can activate and deactivate the selection. In some use cases a deactiavtion ist not wanted. Then you can at the parameter `data-scrivito-toggle-button-enable=false` to change this behavior.
+
+```ruby
+scrivito_tag(:div, @obj, :my_enum_attribute, data: {scrivito_toggle_button_enable: false})
+```
+
 ### <a id="multi_button"></a>Scrivito Multi-Selection Button
 
 This editor changes all `multienum` fields to buttons.
@@ -108,6 +114,7 @@ This list does not need to be complete. If you do not provide a caption for an e
 - [Tabs](#details_tabs)
 - [Accordion](#details_accordion)
 - [Color Picker](#color_picker)
+- [Bind toggle button editor to tab (Beta)](#bind_tab_toggle)
 
 ### <a id="new_obj"></a>Button for creating a new CMS object
 
@@ -255,3 +262,47 @@ scrivito_tag :div, @obj, :background_color, data: {
 }
 ```
 
+### <a id="bind_tab_toggle"></a>Bind toggle button editor to tab (Beta)
+
+Sometimes there are attributes that are not useful in any situation. For example meta-data for Movies. If you want to hide some attributes, and toggle its accessibility. Scrivito Advanced Editors gem provides a binding between its tabs and toggle button editor.
+
+We have a obj calss with a type attribute and different attributes for every type:
+
+```ruby
+def myClass < Obj
+  attribute :type, :enum, values: ['Page','Movie','TvShow','Audio']
+
+  # some attributes for special types
+  attribute :page_name
+  attribute :movie_title, :string
+  attribute :tv_show_name, :string
+  attribute :audio_type, :string
+  ...
+end
+```
+
+In details view for this obj we can add the toggle button to edit the type and a tab to categorize the attributes by type:
+
+```xml
+  <%= scrivito_tag :div, @obj, :type, data: {tab_to_toggle: "#typ_toggle_tab", scrivito_toggle_button_enable: false } %>
+
+  <ul class="tab-list" id="typ_toggle_tab">
+    <li data-panel-target="#panel1" data-allowed-values=["Page"]>Page</li>
+    <li data-panel-target="#panel2" data-allowed-values=["Movie","TvShow"]>Movie</li>
+    <li data-panel-target="#panel3" data-allowed-values=["Audio"]>Audio</li>
+    <li data-panel-target="#panel4">Allways active</li>
+    <li data-panel-target="#panel5" data-allowed-values="">Never active</li>
+  </ul>
+
+  <div class="tab-panels">
+    <div class="tab-panel" id="panel1">...</div>
+    <div class="tab-panel" id="panel2">...</div>
+    <div class="tab-panel" id="panel3">...</div>
+    <div class="tab-panel" id="panel4">...</div>
+  </div>
+<% end %>
+```
+
+With the `data-tab-to-toggle` parameter at the `scrivito_tag` for the type we activate the binding to a specific tab. To specify which tab is active add the parameter `data-allowed-values` to every panel. If this is not specified, the tab is allways active. If the value is empty, it will never active.
+
+No need for `class=active`. It is caluclated on the loading of the details view.
