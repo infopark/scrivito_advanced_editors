@@ -19,6 +19,12 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
+.tab-list li[data-panel-target].inactive:hover {
+  box-shadow: none;
+  background: transparent;
+  cursor: auto;
+}
+
 .tab-list li[data-panel-target].active {
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
