@@ -1,0 +1,81 @@
+div.scrivito_colapsable_for_container {
+  margin: 0px -10px 0px;
+  padding: 0px 10px 0px;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.scrivito_colapsable_for_container h4.scrivito_colapsable_headline {
+  cursor: pointer;
+  margin: 0 !important;
+  padding: 7px 0px 7px 25px;
+  position: relative;
+  display: inline-block;
+  color: inherit;
+}
+
+.scrivito_colapsable_headline i {
+  transition: transform 0.5s;
+  position: absolute;
+  left: 0;
+}
+
+.in .scrivito_colapsable_headline i {
+  transform: rotate(180deg);
+}
+
+.scrivito_colapsable_content {
+  display: none;
+  padding-bottom: 10px;
+  margin-left: 25px;
+}
+
+.scrivito_colapsable_for_container.warning {
+  color: #d8d63a;
+}
+
+.scrivito_colapsable_for_container.danger {
+  color: #aa4040;
+}
+
+.scrivito_colapsable_for_container.help {
+  color: #516b8b;
+}
+
+.scrivito_colapsable_for_container.editing {
+  color: #666666;
+}
+
+.scrivito_colapsable_for_container.small,
+.scrivito_colapsable_for_container.small h4.scrivito_colapsable_headline {
+  font-size: 12px;
+}
+
+.scrivito_colapsable_for_container.small .scrivito_colapsable_headline i {
+  left: 2px;
+}
+
+.scrivito_colapsable_for_container.small h4.scrivito_colapsable_headline {
+  padding: 3px 0 3px 25px;
+}
+
+.scrivito_colapsable_for_container.mark {
+  background: #fafafa;
+  border-top: 1px solid #eaeaea;
+}
+
+.scrivito_colapsable_for_container.mark:last-child {
+  border-radius: 0 0px 5px 5px;
+  margin-bottom: -10px;
+}
+
+.scrivito_content_group + .scrivito_colapsable_for_container.mark {
+  font-size: 12px;
+  margin: -15px 20px 0px;
+  padding: 0px 10px 0px;
+  background: #fafafa;
+  border-radius: 0 0px 5px 5px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  z-index: 0;
+  border-top: 1px solid #eaeaea;
+}
