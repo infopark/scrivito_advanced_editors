@@ -115,6 +115,7 @@ This list does not need to be complete. If you do not provide a caption for an e
 - [Accordion](#details_accordion)
 - [Color Picker](#color_picker)
 - [Bind toggle button editor to tab (Beta)](#bind_tab_toggle)
+- [Adding a colapsable (Beta)](#add_colapsable)
 
 ### <a id="new_obj"></a>Button for creating a new CMS object
 
@@ -306,3 +307,64 @@ In details view for this obj we can add the toggle button to edit the type and a
 With the `data-tab-to-toggle` parameter at the `scrivito_tag` for the type we activate the binding to a specific tab. To specify which tab is active add the parameter `data-allowed-values` to every panel. If this is not specified, the tab is allways active. If the value is empty, it will never active.
 
 No need for `class=active`. It is caluclated on the loading of the details view.
+
+### <a id="add_colapsable"></a>Adding a colapsable (Beta)
+
+One more method to hide Attributes or text. An easy colapsable:
+
+```xml
+<%= scrivito_colapsable_for 'Some hidden attributes' do %>
+  ...
+<% end %>
+```
+
+You can one on the predifined types:
+
+```xml
+<%= scrivito_colapsable_for 'Editing', 'editing' do %>
+  ...
+<% end %>
+<%= scrivito_colapsable_for 'Danger', 'danger' do %>
+  ...
+<% end %>
+<%= scrivito_colapsable_for 'Warning', 'warning' do %>
+  ...
+<% end %>
+<%= scrivito_colapsable_for 'Help', 'help' do %>
+  ...
+<% end %>
+
+<%= scrivito_colapsable_for 'Mark', 'mark' do %>
+  ...
+<% end %>
+<%= scrivito_colapsable_for 'Small', 'small' do %>
+  ...
+<% end %>
+```
+
+`editing` is the default. The types `mark` and `small` can combined together with the other ones:
+
+```xml
+<%= scrivito_colapsable_for 'Mark', 'warning mark' do %>
+  ...
+<% end %>
+<%= scrivito_colapsable_for 'Small', 'help mark small' do %>
+  ...
+<% end %>
+```
+
+If you has Bootstrap in your details view available, you can also use bootstraps helper classes like centering text or setting background colors.
+
+You cann add your own type easily with css:
+
+```xml
+<%= scrivito_colapsable_for 'Attributes', 'my_type' do %>
+  ...
+<% end %>
+```
+
+```css
+.scrivito_colapsable_for_container.my_type .scrivito_colapsable_editing {
+  color: green;
+}
+```
