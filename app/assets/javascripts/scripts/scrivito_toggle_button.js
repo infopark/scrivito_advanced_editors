@@ -3,7 +3,7 @@
 
   var activate, handleClick, renderTemplate, save;
 
-  scrivito.editors.enum_editor = {
+  var enum_editor = {
     can_edit: function(element) {
       var is_enum = $(element).is('[data-scrivito-field-type=enum]');
       var has_list = $(element).is('[data-toggle-button-list]');
@@ -15,7 +15,7 @@
   };
 
   scrivito.on('load', function() {
-    return scrivito.define_editor('toggle_button_editor', scrivito.editors.enum_editor);
+    return scrivito.define_editor('toggle_button_editor', enum_editor);
   });
 
   activate = function(cmsField) {

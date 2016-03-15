@@ -4,8 +4,7 @@
   var activate, handleClick, renderTemplate,
   indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  scrivito.editors = {}
-  scrivito.editors.multienum_editor = {
+  var multienum_editor = {
     can_edit: function(element) {
       var is_multienum = $(element).is('[data-scrivito-field-type=multienum]')
       var has_list = $(element).is('[data-multi-select-list]');
@@ -17,7 +16,7 @@
   };
 
   scrivito.on('load', function() {
-    return scrivito.define_editor('multienum', scrivito.editors.multienum_editor);
+    return scrivito.define_editor('multienum', multienum_editor);
   });
 
   activate = function(cmsField) {
