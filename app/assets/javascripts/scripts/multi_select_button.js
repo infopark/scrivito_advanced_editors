@@ -16,7 +16,7 @@
   };
 
   scrivito.on('content', function() {
-    return scrivito.define_editor('multienum', multienum_editor);
+    return scrivito.define_editor('toggle_multi_select_editor', multienum_editor);
   });
 
   activate = function(cmsField) {

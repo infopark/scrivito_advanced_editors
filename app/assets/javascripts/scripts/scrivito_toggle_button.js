@@ -23,7 +23,6 @@
     var captions = cmsField.data('toggle-button-caption');
     cmsField.html(renderTemplate(cmsField.scrivito('content'), validValues, captions));
     return cmsField.find('.scrivito_enum_editor li').on('click', function() {
-      console.log('clicked');
       handleClick(cmsField, $(this));
     });
   };
