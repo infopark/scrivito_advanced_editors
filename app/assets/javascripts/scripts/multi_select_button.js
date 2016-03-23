@@ -15,7 +15,7 @@
     }
   };
 
-  scrivito.on('load', function() {
+  scrivito.on('content', function() {
     return scrivito.define_editor('multienum', multienum_editor);
   });
 

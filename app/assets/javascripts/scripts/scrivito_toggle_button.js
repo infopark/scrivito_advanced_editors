@@ -14,7 +14,7 @@
     }
   };
 
-  scrivito.on('load', function() {
+  scrivito.on('content', function() {
     return scrivito.define_editor('toggle_button_editor', enum_editor);
   });
 
@@ -23,6 +23,7 @@
     var captions = cmsField.data('toggle-button-caption');
     cmsField.html(renderTemplate(cmsField.scrivito('content'), validValues, captions));
     return cmsField.find('.scrivito_enum_editor li').on('click', function() {
+      console.log('clicked');
       handleClick(cmsField, $(this));
     });
   };

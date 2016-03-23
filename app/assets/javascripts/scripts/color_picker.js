@@ -34,7 +34,7 @@
     },
   };
 
-  scrivito.on('load', function() {
+  scrivito.on('content', function() {
     scrivito.define_editor("color_picker", {
       can_edit: function(element) {
         return $(element).is('[data-colors-list]');
