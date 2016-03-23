@@ -30,7 +30,6 @@ If you do not need all the features contained in the library, you can specify th
 
 - [Scrivito Toggle Button Editor](#toggle_button)
 - [Scrivito Multi-Selection Button Editor](#multi_button)
-- [Scrivito Textarea Editor](#textarea)
 
 ### <a id="toggle_button"></a>Scrivito Toggle Button
 
