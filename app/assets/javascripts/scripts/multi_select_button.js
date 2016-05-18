@@ -16,7 +16,9 @@
   };
 
   scrivito.on('content', function() {
-    return scrivito.define_editor('toggle_multi_select_editor', multienum_editor);
+    if(scrivito.in_editable_view()) {
+      scrivito.define_editor('toggle_multi_select_editor', multienum_editor);
+    }
   });
 
   activate = function(cmsField) {

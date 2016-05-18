@@ -15,7 +15,9 @@
   };
 
   scrivito.on('content', function() {
-    return scrivito.define_editor('toggle_button_editor', enum_editor);
+    if(scrivito.in_editable_view()) {
+      scrivito.define_editor('toggle_button_editor', enum_editor);
+    }
   });
 
   activate = function(cmsField) {
@@ -37,7 +39,8 @@
       li = $('<li></li>');
       li.html(caption);
       li.data('scrivito-toggle-value', validValue);
-      if (validValue === value) {
+
+      if (validValue === parseInt(value)) {
         li.addClass('scrivito_enum_active');
       }
       ul.append(li);

@@ -35,15 +35,17 @@
   };
 
   scrivito.on('content', function() {
-    scrivito.define_editor("color_picker", {
-      can_edit: function(element) {
-        return $(element).is('[data-colors-list]');
-      },
-      activate: function(element) {
-        ScrivitoColorPicker.init_function(element);
-        $(element).on('click', '.scrivito-color-select', ScrivitoColorPicker.clickFunction);
-      }
-    });
+    if(scrivito.in_editable_view()) {
+      scrivito.define_editor("color_picker", {
+        can_edit: function(element) {
+          return $(element).is('[data-colors-list]');
+        },
+        activate: function(element) {
+          ScrivitoColorPicker.init_function(element);
+          $(element).on('click', '.scrivito-color-select', ScrivitoColorPicker.clickFunction);
+        }
+      });
+    }
   });
 
 })(jQuery, this);
