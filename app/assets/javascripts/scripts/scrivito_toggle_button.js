@@ -40,7 +40,7 @@
       li.html(caption);
       li.data('scrivito-toggle-value', validValue);
 
-      if (validValue === parseInt(value)) {
+      if (validValue.toString() === value) {
         li.addClass('scrivito_enum_active');
       }
       ul.append(li);
