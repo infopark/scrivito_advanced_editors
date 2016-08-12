@@ -18,8 +18,8 @@ Add this line to your JavaScript manifest:
 
 If you do not need all the features contained in the library, you can specify them individually.
 
-    //= require scrivito_advanced_editors/multi_select_button
-    //= require scrivito_advanced_editors/toggle_buttons
+    //= require scripts/multi_select_button
+    //= require scripts/toggle_buttons
 
     //= require scrivito_advanced_editors/scrivito_tabs
     //= require scrivito_advanced_editors/details_accordion
