@@ -1,0 +1,129 @@
+.tab-list {
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 3px 3px 0 3px;
+}
+
+.tab-list li[data-panel-target] {
+  float: left;
+  cursor: pointer;
+  color: #666;
+  padding: 8px 14px;
+  margin: 5px 5px 0 0px;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab-list li[data-panel-target]:hover {
+  background: #eee;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.tab-list li[data-panel-target].inactive:hover {
+  box-shadow: none;
+  background: transparent;
+  cursor: auto;
+}
+
+.tab-list li[data-panel-target].active {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.tab-list li.inactive {
+  color: #aaa;
+  float: left;
+  padding: 8px;
+  margin: 5px 5px 0 0px;
+}
+
+.tab-panels {
+  background-color: white;
+  padding: 11px;
+  box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+  margin: 0px 3px 5px;
+}
+
+.tab-panels .tab-panel {
+  display: none;
+}
+
+.tab-panels .tab-panel.active {
+  display: block;
+}
+
+ul.tab-list.vertical {
+  float: left;
+  width: 20%;
+  padding-bottom: 3px 0 3px 3px;
+  li[data-panel-target] {
+    float: none;
+    margin: 5px 0;
+    border-radius: 5px 0 0 5px;
+    &:hover {
+      box-shadow: none;
+      color: #658b51;
+      background-color: transparent;
+    }
+    &.active {
+      background-color: transparent;
+      box-shadow: none;
+      font-weight: bold;
+      color: #658b51;
+    }
+  }
+}
+
+ul.tab-list.vertical + .tab-panels {
+  position: relative;
+  z-index: 1;
+  float: right;
+  width: 80%;
+  margin: 0;
+}
+
+.accordion-headline {
+  display: none;
+  margin: 10px 0 0;
+  cursor: pointer;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+  color: #666;
+  &:first-child {
+    margin: 0;
+  }
+  &.active {
+    font-weight: bold;
+    color: #658b51;
+  }
+  &.inactive {
+    color: #aaa !important;
+  }
+}
+
+.scrivito-mobile-view {
+  ul.tab-list {
+    display: none;
+  }
+
+  .accordion-headline {
+    display: block;
+  }
+
+  div.tab-panels {
+    float: none !important;
+    width: 100% !important;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    .tab-panel {
+      background-color: #fff;
+      box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+      border-radius: 5px;
+      margin: 10px 0 20px;
+      padding: 10px;
+    }
+  }
+}
