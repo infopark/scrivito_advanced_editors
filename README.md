@@ -26,6 +26,11 @@ If you do not need all the features contained in the library, you can specify th
     //= require scrivito_advanced_editors/color_picker
     //= require scrivito_advanced_editors/create_obj
 
+## New in Version 1.3.x
+
+- A view for tabs is available. It is used if the edit view is small. This anhance the usability of the content browser and editing on mobile devices.
+- You can set a tab to be vertical. Only add `class='tab-list vertical'` to your tab list.
+
 ## Included Editors
 
 - [Scrivito Toggle Button Editor](#toggle_button)
@@ -195,6 +200,16 @@ Use the `active` class to select the initially active panel of the tab list:
 ```
 
 Using the `inactive` class for a list element removes the click handler and makes the font color brighter. Conditionally enabling and disabling click handlers lets you enable or disable panels depending on the values of other elements.
+
+You can also define the tab to have a vertical style. Only add the css class `vertical` to your tab-list.
+
+```xml
+<ul class="tab-list vertical">
+  ...
+</ul>
+
+...
+```
 
 ### <a id="details_accordion"></a>Accordion
 
