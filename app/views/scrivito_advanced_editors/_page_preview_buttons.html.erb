@@ -1,0 +1,7 @@
+<%= link_to scrivito_path(obj), class: 'editing-button editing-blue', target: :_top do %>
+  <i class='scrivito_icon scrivito_icon_eye' style='font-size: 10px;'></i> Go to page
+<% end %>
+
+<%= link_to scrivito_path(obj).sub(/_scrivito_display_mode=\w+/,'_scrivito_display_mode=view'), class: 'editing-button editing-blue', target: :_blank do %>
+  <i class='scrivito_icon scrivito_icon_plus' style='font-size: 10px;'></i> Preview
+<% end %>
