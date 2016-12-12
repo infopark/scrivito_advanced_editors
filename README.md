@@ -317,19 +317,19 @@ In details view for this obj we can add the toggle button to edit the type and a
 <% end %>
 ```
 
-With the `data-tab-to-toggle` parameter at the `scrivito_tag` for the type we activate the binding to a specific tab. To specify which tab is active add the parameter `data-allowed-values` to every panel. If this is not specified, the tab is allways active. If the value is empty, it will never active.
+With the `data-tab-to-toggle` parameter at the `scrivito_tag` for the type we activate the binding to a specific tab. To specify which tab is active add the parameter `data-allowed-values` to every panel. If this is not specified, the tab is allways active. If the value is empty, it will never be active.
 
 No need for `class=active`. It is caluclated on the loading of the details view.
 
 ### <a id="preview_buttons"></a>Preview Buttons
 
-Buttons to open an object from your details view. It is very helpful in the content browser to open the selected page.
+Buttons to open a page from your details view. It is very helpful in the content browser to open the selected page.
 
 ```xml
 <%= render 'scrivito_advanced_editors/page_preview_buttons', obj: @obj %>
 ```
 
-### <a id="add_colapsable"></a>Adding a colapsable (Beta)
+### <a id="add_colapsable"></a>Adding a colapsable
 
 One more method to hide Attributes or text. An easy colapsable:
 
