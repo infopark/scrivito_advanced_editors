@@ -16,20 +16,10 @@ Add this line to your JavaScript manifest:
 
     //= require scrivito_advanced_editors
 
-If you do not need all the features contained in the library, you can specify them individually.
+## New in Version 1.4.x
 
-    //= require scripts/multi_select_button
-    //= require scripts/toggle_buttons
-
-    //= require scrivito_advanced_editors/scrivito_tabs
-    //= require scrivito_advanced_editors/details_accordion
-    //= require scrivito_advanced_editors/color_picker
-    //= require scrivito_advanced_editors/create_obj
-
-## New in Version 1.3.x
-
-- There is a view for tabs now which is used if the editing view is small. It enhances the usability of the Content Browser and makes editing on mobile devices easier.
-- Tabs can now be arranged vertically. Just add `class='tab-list vertical'` to your tab list.
+- Color picker can use lists of lists for better color structuring
+- Added partial for preview buttons
 
 ## Included Editors
 
@@ -118,6 +108,7 @@ This list does not need to be complete. If you do not provide a caption for an e
 - [Tabs](#details_tabs)
 - [Accordion](#details_accordion)
 - [Color Picker](#color_picker)
+- [Preview Buttons](#preview_buttons)
 - [Bind toggle button editor to tab (Beta)](#bind_tab_toggle)
 - [Adding a colapsable (Beta)](#add_colapsable)
 
@@ -268,7 +259,15 @@ Then specify the CSS for the colors:
 .blue * { color: #fff; }
 ```
 
-You can add the `data-scrivito-color-picker-show-text` attribute and set it to `true` to show a short text to visualize the text style for a color.
+A better structure of data can be set separating them in arrays. This can be used to differentiate the colors in main and helping colors or define base colors and lighter and darker versions of them:
+
+```ruby
+scrivito_tag :div, @obj, :background_color, data: {colors_list: [['red-light', 'green-light', 'blue-light'],['red', 'green', 'blue'],['red-dark', 'green-dark', 'blue-dark'],nil,['transparent','white','gray','black']]}
+```
+
+Using nil will as list will generate a *hr*-tag.
+
+You can also add the `data-scrivito-color-picker-show-text` attribute and set it to `true` to show a short text to visualize the text style for a color.
 
 ```ruby
 scrivito_tag :div, @obj, :background_color, data: {
@@ -321,6 +320,14 @@ In details view for this obj we can add the toggle button to edit the type and a
 With the `data-tab-to-toggle` parameter at the `scrivito_tag` for the type we activate the binding to a specific tab. To specify which tab is active add the parameter `data-allowed-values` to every panel. If this is not specified, the tab is allways active. If the value is empty, it will never active.
 
 No need for `class=active`. It is caluclated on the loading of the details view.
+
+### <a id="preview_buttons"></a>Preview Buttons
+
+Buttons to open an object from your details view. It is very helpful in the content browser to open the selected page.
+
+```xml
+<%= render 'scrivito_advanced_editors/page_preview_buttons', obj: @obj %>
+```
 
 ### <a id="add_colapsable"></a>Adding a colapsable (Beta)
 
