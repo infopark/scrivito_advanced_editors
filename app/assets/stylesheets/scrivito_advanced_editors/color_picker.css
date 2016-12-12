@@ -21,9 +21,9 @@
   overflow: hidden;
   position: relative;
   border: 0;
-  margin: 0 5px 0 0;
+  margin: 10px 7px 5px 0;
   box-shadow: 0 0 4px 1px rgba(0,0,0,0.1);
-  border-radius: 3px;
+  border-radius: 2px;
   background: transparent;
   top: -5px;
   outline: none;
@@ -33,6 +33,7 @@
   width: 55px;
   height: 55px;
   top: 0;
+  margin: 0px 2px 0px -5px;
 }
 
 .scrivito_dialog [data-colors-list] .scrivito-color-select.none {
@@ -64,6 +65,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  border-radius: 3px;
 }
 
 .scrivito_dialog [data-colors-list] .scrivito-color-select:after {
@@ -75,4 +77,5 @@
   left: 0;
   right: 0;
   bottom: 0;
+  border-radius: 2px;
 }

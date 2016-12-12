@@ -10,17 +10,19 @@
       if(with_text) $(scrivito_tag).addClass('with-text');
 
       $(scrivito_tag).addClass('scrivito_color_picker').html('');
-      return $.each(values, function(index, color) {
-        var css_class = (color === content) ? 'active' : 'inactive'
-        $('<button></button>')
-          .addClass('scrivito-color-select')
-          .addClass(color === "" ? "default" : color)
-          .addClass(color !== "" ? '' : 'transparent_bg')
-          .addClass(css_class)
-          .data('content', color)
-          .html('')
-          .appendTo($(scrivito_tag));
-      });
+
+      if(Array.isArray(values[0])) {
+        $.each(values, function(index, list) {
+          if(index > 0) $('<div class="clear"></div>').appendTo($(scrivito_tag));
+          if(list === null) {
+            $('<hr>').appendTo($(scrivito_tag));
+          } else {
+            ScrivitoColorPicker.buttons(list, content, scrivito_tag);
+          }
+        });
+      } else {
+        ScrivitoColorPicker.buttons(values, content, scrivito_tag);
+      }
     },
 
     clickFunction: function(event) {
@@ -32,6 +34,23 @@
 
       scrivito_tag.scrivito('save', text);
     },
+
+    buttons: function(values, content, scrivito_tag) {
+      $.each(values, function(index, color) {
+        var css_class = (color === content) ? 'active' : 'inactive'
+        ScrivitoColorPicker.button(color, css_class).appendTo($(scrivito_tag));
+      });
+    },
+
+    button: function(color, css_class) {
+      return $('<button></button>')
+        .addClass('scrivito-color-select')
+        .addClass(color === "" ? "default" : color)
+        .addClass(color !== "" ? '' : 'transparent_bg')
+        .addClass(css_class)
+        .data('content', color)
+        .html('')
+    }
   };
 
   scrivito.on('content', function() {
