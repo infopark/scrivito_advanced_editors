@@ -39,7 +39,6 @@
       allowedValues = typeof(allowedValues) === 'string' ? allowedValues.replace(/[' \[\]]/g, "").split(",") : allowedValues;
 
       if(allowedValues == undefined || $.inArray(value, allowedValues) > -1) {
-        debugger
         if($(button).hasClass('scrivito_enum_active')) {
           $(elem).removeClass('inactive');
         }
