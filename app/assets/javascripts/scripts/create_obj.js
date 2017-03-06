@@ -25,7 +25,7 @@ $(function() {
         }
 
         return scrivito.create_obj(options).done(function(data) {
-          return $('body').trigger("scrivito_reload");
+          return location.reload();
         });
       });
     });
