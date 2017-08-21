@@ -25,6 +25,7 @@ Add this line to your JavaScript manifest:
 
 - [Scrivito Toggle Button Editor](#toggle_button)
 - [Scrivito Multi-Selection Button Editor](#multi_button)
+- [Date Time Editor](#date_time)
 
 ### <a id="toggle_button"></a>Scrivito Toggle Button
 
@@ -100,6 +101,79 @@ scrivito_tag(:div, @obj, :my_string_attribute, data: {multi_select_caption: {'el
 ```
 
 This list does not need to be complete. If you do not provide a caption for an element, the source element is used.
+
+### <a id="date_time"></a>Date Time Picker
+
+This editor changes all `date` fields to a better date time picker. It is using [FlatPickr](https://github.com/chmln/flatpickr)
+
+#### Usage
+
+Activate this editor in your editor selction:
+
+```ruby
+scrivito.select_editor(function(element, editor) {
+  editor.use("datetime_editor");
+});
+```
+
+This editor porvides some conig operators. These can be defined in the data attribute `data-scrivito-datetimepicker-config`:
+
+```ruby
+  scrivito_tag(:div, obj, :my_date_attribute, data: {scrivito_datetimepicker_config: {
+    dateFormat: 'Y-m-d', # The Format the date will be presented
+    enableTime: true, # Enable or diable the time picker
+    enableSeconds: true, # Enable or disable the seconds in the time picker
+    hourIncrement: 1, # Using keys or scroll steps for hours
+    minuteIncrement: 5, # Using keys or scroll steps for minutes
+    minDate: null, # Min date can be a valid string or date object
+    maxDate: null, # Max date can be a valid string or date object
+    time_24hr: true, # 24 hour time format
+    inline: false, # presents the picker inline directly under the input field
+    weekNumber: false, # shows week numbers
+    allowInput: false, # allows the user to type the date in the input field
+    disable: [], # List of dates the are not usable
+    enable: [] # List of dates that are only usable
+  }})
+```
+
+Examples for enabling or disabling dates:
+
+```JS
+  // List of dates
+  {
+    disable: ["2017-03-30", "2017-05-21", "2017-06-08", new Date(2017, 8, 9) ]
+  }
+```
+
+```JS
+  // disable with a range
+  { disable: [
+      {
+        from: "2017-04-01",
+        to: "2017-06-01"
+      },
+      {
+        from: "2017-09-01",
+        to: "2017-12-01"
+      }
+    ]
+  }
+
+```
+
+```JS
+  // use a function
+  { "disable": [
+      function(date) {
+        return (date.getDay() === 5 || date.getDay() === 6); // hide weekends
+      }
+    ],
+    "locale": {
+      "firstDayOfWeek": 1 // start week on Monday
+    }
+  }
+```
+
 
 ## Included Extensions
 
