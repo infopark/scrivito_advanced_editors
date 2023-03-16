@@ -5,7 +5,9 @@ module ScrivitoAdvancedEditors
     isolate_namespace ScrivitoAdvancedEditors
 
     initializer "scrivito_editors.scrivito_advanced_tag_helper" do
-      ActionView::Base.send :include, ScrivitoAdvancedTagHelper
+      config.after_initialize do
+        ActionView::Base.send :include, ScrivitoAdvancedTagHelper
+      end
     end
   end
 end
